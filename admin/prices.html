@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>Price Importer · Riversdale Fresh</title>
+<title>Price Importer · Riversdale Kitchen</title>
 <link rel="icon" href="../assets/img/riversdale-favicon.ico" sizes="any">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,700..900&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;700&display=swap">
-<link rel="stylesheet" href="../assets/css/riversdale-fresh.css?v=202610172125">
+<link rel="stylesheet" href="../assets/css/riversdale-fresh.css?v=202610181250">
 <style>
   .admin{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 60px;display:flex;flex-direction:column;gap:20px}
   .admin h1{font-family:var(--display);font-weight:900;font-size:34px;letter-spacing:-.02em;margin:0}
@@ -64,18 +64,18 @@
 
   <section class="panel">
     <div class="sec-head"><h2>Publish to the site</h2></div>
-    <p class="small">One-time setup: paste a fine-grained GitHub token for the riversdale-fresh repo (Contents: Read and write). It's kept in this browser only, and after that every paste publishes on its own.</p>
+    <p class="small">One-time setup: paste a fine-grained GitHub token for the docket repo (Contents: Read and write). It's kept in this browser only, and after that every paste publishes on its own.</p>
     <div class="row"><input class="tok" id="token" type="password" placeholder="github_pat_..." autocomplete="off"><button class="btn" id="publish">Publish</button></div>
     <p class="msg" id="pubmsg" role="status"></p>
   </section>
 </main>
 
-<script src="../js/data.js?v=202610172125"></script>
-<script src="../js/prices.js?v=202610172125"></script>
+<script src="../js/data.js?v=202610181250"></script>
+<script src="../js/prices.js?v=202610181250"></script>
 <script>
 (function(){
   const $=s=>document.querySelector(s);
-  const REPO='AngusJChisholm/riversdale-fresh';
+  const REPO='AngusJChisholm/docket';
   const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const money=v=>v==null?'':'$'+(+v).toFixed(2);
   const today=new Date().toISOString().slice(0,10);

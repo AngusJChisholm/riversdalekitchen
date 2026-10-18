@@ -33,12 +33,12 @@
       <hr class="rule">
       <p class="kt-head">THE KIT TAX · SAME SERVES</p>
       <div class="lines">
-        <div class="ln us"><span>Riversdale Fresh (est.)</span><span>${money(w.docket)}</span></div>
+        <div class="ln us"><span>Riversdale Kitchen (est.)</span><span>${money(w.docket)}</span></div>
         ${w.kits.map(k => `<div class="ln kit"><span>${esc(k.n)}</span><span>${money(k.v)}</span></div>`).join('')}
       </div>
       ${saved > 0 ? `<div class="dodged"><span>KIT TAX DODGED</span><b class="num">${money(saved)}</b></div>
       <p class="kt-save num">vs ${esc(hf.n)}. That's ${money(saved * 52, 0)} a year.</p>` : ''}
-      ${cheaper.length ? `<p class="kt-note">${cheaper.join(' and ')} ${cheaper.length > 1 ? 'are' : 'is'} cheaper on price alone. Riversdale Fresh dinners average ${AVGP}g protein a serve.</p>` : ''}`;
+      ${cheaper.length ? `<p class="kt-note">${cheaper.join(' and ')} ${cheaper.length > 1 ? 'are' : 'is'} cheaper on price alone. Riversdale Kitchen dinners average ${AVGP}g protein a serve.</p>` : ''}`;
   }
 
   // Hero: an example week, set like a menu
@@ -145,8 +145,8 @@
     if (!CFG.waitlistEndpoint) { msg.textContent = "Sign-ups open in a few days. Check back soon!"; return; }
     msg.textContent = 'Signing you up...';
     try {
-      const res = await fetch(CFG.waitlistEndpoint, { method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, body: JSON.stringify({ email, source: 'docket-home' }) });
-      if (!res.ok) throw new Error(res.status);
+      await window.DocketRecipes.send({ email, source: 'home-signup' });
+      try { localStorage.setItem('docket-member', email); } catch (e) {}
       msg.textContent = "You're in. First plan lands Wednesday."; e.target.reset();
     } catch (err) { msg.textContent = "That didn't go through. Try again in a minute."; }
   });

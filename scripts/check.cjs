@@ -91,7 +91,7 @@ eval(rd('js/data.js') + rd('js/prices.js') + rd('js/season.js') + rd('js/recipes
     const w = week(); if (w.total > autoBudget()) over++; if (kitCost(KITS[0], spm(), S.sel.length) > w.eaten) beats++;
   }
   if (over / N > .3) fail('suggested budget too low: ' + Math.round(over / N * 100) + '% of random weeks go over');
-  if (beats / N < .95) fail('Riversdale Fresh only beats HelloFresh in ' + Math.round(beats / N * 100) + '% of weeks');
+  if (beats / N < .95) fail('Riversdale Kitchen only beats HelloFresh in ' + Math.round(beats / N * 100) + '% of weeks');
   // 4. Angus's flat: 5 people, 2 GF, lunches, 4 dinners, under $400
   Object.assign(S, { people: 5, gf: 2, lunch: true, dinners: 4, sel: ['butter', 'tuscan', 'carnitas', 'friedrice'].filter(id => R.some(r => r.id === id)), store: 'coles' });
   const flat = week(); if (flat.total > 400) fail('flat week costs $' + flat.total.toFixed(0));

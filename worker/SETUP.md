@@ -13,14 +13,14 @@ Buy something like `riversdalefresh.com.au` (a .com.au needs an ABN) or `riversd
 
 ## 3. Cloudflare Worker (the bit of code that talks to Resend)
 1. Sign up at dash.cloudflare.com.
-2. **Workers & Pages > Create > Create Worker**. Name it `riversdale-fresh-mailer`, click **Deploy**.
+2. **Workers & Pages > Create > Create Worker**. Name it `riversdale-kitchen-mailer`, click **Deploy**.
 3. Click **Edit code**, delete what's there, paste in everything from `worker/worker.js`, then **Deploy**.
 4. Go to the worker's **Settings > Variables and secrets** and add:
    - `RESEND_API_KEY` (type **Secret**): your Resend key
-   - `FROM_EMAIL`: `Riversdale Fresh <plans@yourdomain>`
+   - `FROM_EMAIL`: `Riversdale Kitchen <plans@yourdomain>`
    - `ALLOWED_ORIGIN`: `https://angusjchisholm.github.io` (add your own domain later, comma separated)
-   - `SITE_URL`: `https://angusjchisholm.github.io/riversdale-fresh/plan.html`
-5. Copy the worker's address (like `https://riversdale-fresh-mailer.yourname.workers.dev`).
+   - `SITE_URL`: `https://angusjchisholm.github.io/docket/plan.html`
+5. Copy the worker's address (like `https://riversdale-kitchen-mailer.yourname.workers.dev`).
 
 ## 4. Connect the site
 In `js/config.js`, set `emailEndpoint` to the worker address, then push. Test it by sending a plan to yourself.
