@@ -108,7 +108,7 @@
     $('#mc-body').innerHTML = `<ol class="mc-list${animate ? ' deal' : ''}">${pick.map((r, i) => `<li style="--i:${i}"><span class="mc-day">${days[i]}</span><span class="mc-dish">${esc(r.n)}${tierOf(r) !== 'everyday' ? ` <span class="tier ${tierOf(r) === 'premium' ? 'prem' : 'light'}">${tierOf(r) === 'premium' ? 'Premium' : 'Lighter'}</span>` : ''}</span><span class="mc-lead" aria-hidden="true"></span><span class="mc-pr num">${money(serveCost(r))}</span></li>`).join('')}</ol>
       <div class="mc-foot"><span>Food for the week · ${w.serves} serves</span><b class="num">${money(w.total, 0)}</b></div>
       ${dodged > 0 ? `<div class="mc-dodge"><span>Kit Tax dodged</span><b class="num">${money(dodged, 0)}</b></div>` : ''}
-      ${w.pkit && w.prot > hf.prot ? `<div class="mc-dodge pm"><span>Same protein from ${esc(hf.n)}</span><b class="num">${money(w.pkit - w.total, 0)}</b></div>` : ''}
+      ${w.pkit && w.prot > hf.prot ? `<div class="mc-dodge pm"><span>${esc(hf.n)}, same protein</span><b class="num">${money(w.pkit, 0)}</b></div>` : ''}
       ${isPicks && SEA ? `<p class="mc-season">Week of ${SEA.weekLabel()}. Quick, good value and built around what's in season: <b>${esc(SEA.inSeasonNames().slice(0, 5).join(', '))}</b>.</p>` : ''}`;
     $('#hero-serve').textContent = money(w.total / w.serves);
     const tk = document.querySelector('.hang .ticket'); if (animate && tk && !reduce) { tk.classList.remove('bump'); void tk.offsetWidth; tk.classList.add('bump'); }
