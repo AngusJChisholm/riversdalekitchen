@@ -1,11 +1,14 @@
 // ---------- State ----------
-const S={people:2,gf:0,dinners:4,lunch:true,budget:120,budgetAuto:true,minProt:40,store:'coles',skip:{pork:false,seafood:false,red:false},sel:['butter','tuscan','carnitas','friedrice'],treats:[],sort:'cost',col:'all',done:{}};
+const S={people:2,gf:0,dinners:4,lunch:true,budget:120,budgetAuto:true,minProt:40,store:'coles',skip:{pork:false,seafood:false,red:false},sel:['butter','tuscan','carnitas','friedrice'],treats:[],sort:'cost',col:'all',done:{},f:{prot:[],quick:false,cheap:false,gf:false}};
 const STAPLES=(window.DOCKET_CONFIG||{}).staplesPerWeek??15;
-let fresh=true;try{const s=JSON.parse(localStorage.getItem('docket-state')||'null');if(s)fresh=false;if(s&&typeof s==='object'){Object.assign(S,s,{skip:{...S.skip,...(s.skip||{})}});if(s.budgetAuto===undefined)S.budgetAuto=false}}catch(e){}
+let fresh=true;try{const s=JSON.parse(localStorage.getItem('docket-state')||'null');if(s)fresh=false;if(s&&typeof s==='object'){Object.assign(S,s,{skip:{...S.skip,...(s.skip||{})},f:{prot:[],quick:false,cheap:false,gf:false,...(s.f||{})}});if(s.budgetAuto===undefined)S.budgetAuto=false}}catch(e){}
 delete S.kits;S.sel=S.sel.filter(id=>R.some(r=>r.id===id));
 const TR=typeof T!=='undefined'?T:[];S.treats=(Array.isArray(S.treats)?S.treats:[]).filter(id=>TR.some(r=>r.id===id));
 S.people=Math.min(8,Math.max(1,S.people));S.gf=Math.min(S.gf,S.people);
 if(['all','picks','quick','everyday','premium','lighter','treats'].includes(location.hash.slice(1)))S.col=location.hash.slice(1);
+try{const q=new URLSearchParams(location.search);const pp=+q.get('people'),dd=+q.get('dinners');
+  if(pp>=1&&pp<=8){S.people=pp;S.gf=Math.min(S.gf,pp);S.budgetAuto=true}if(dd>=1&&dd<=7)S.dinners=dd;if(q.has('lunch'))S.lunch=q.get('lunch')==='1';
+  if(pp||dd||q.has('lunch')){S.sel=S.sel.slice(0,S.dinners);history.replaceState(null,'',location.pathname+location.hash)}}catch(e){}
 function save(){try{localStorage.setItem('docket-state',JSON.stringify(S))}catch(e){}}
 
 // ---------- Pricing ----------
@@ -54,6 +57,12 @@ function serveCost(r){return splitLines(r,1).reduce((s,[id,a])=>{const pr=price(
 function serveProt(r){return r.i.reduce((s,[id,q])=>{const it=ING[id];return s+(it.u==='ea'?q*it.pr:q*it.pr/100)},0)}
 function tags(r){const t=new Set();r.i.forEach(([id])=>{if(ING[id].t)t.add(ING[id].t)});return t}
 function gfType(r){return r.i.some(([id])=>GFSWAP[id])?'swap':'yes'}
+// Browse filters (the bar above the dinners). Picked dinners always stay visible.
+function protOf(r){const ms=r.i.filter(([id])=>ING[id].a==='M'||id==='prawns');if(!ms.length)return'veg';const id=ms.reduce((a,b)=>(ING[b[0]].u==='g'?b[1]:0)>(ING[a[0]].u==='g'?a[1]:0)?b:a)[0];
+  return/^chk_|duck/.test(id)?'chicken':/^lamb/.test(id)?'lamb':/^pork|chorizo|bacon|ham|prosciutto/.test(id)?'pork':/salmon|whitefish|barra|prawns/.test(id)?'seafood':'beef'}
+function passF(r){const f=S.f;if(f.prot.length&&!f.prot.includes(protOf(r)))return false;if(f.quick&&r.t>30)return false;if(f.cheap&&serveCost(r)>=8)return false;if(f.gf&&gfType(r)!=='yes')return false;return true}
+const PROT_WORD={chicken:'Chicken',beef:'Beef',lamb:'Lamb',pork:'Pork',seafood:'Seafood',veg:'Veggie'};
+function fOn(){const f=S.f;return f.prot.length||f.quick||f.cheap||f.gf}
 function inCol(r,picks){return S.col==='all'||(S.col==='picks'?(picks||weekPicks()).includes(r.id):S.col==='quick'?r.t<=30:tierOf(r)===S.col)}
 function weekPicks(){return SEA.picks(serveCostColes,{allowed:r=>allowed(r)&&serveProt(r)>=S.minProt})}
 function serveCostColes(r){return r.i.reduce((s,[id,a])=>{const pr=price(id,'coles');return s+a/pr.pk*pr.p},0)}
@@ -149,6 +158,10 @@ function renderControls(){
   document.querySelectorAll('#skips .chip').forEach(b=>b.setAttribute('aria-pressed',!!S.skip[b.dataset.k]));
   {const bits=[money(S.budget,0)+' budget'];const g=Math.min(S.gf,S.people);if(g)bits.push(g+' gluten free');if(S.minProt)bits.push(S.minProt+'g+ protein');const sk=Object.keys(S.skip).filter(k=>S.skip[k]);if(sk.length)bits.push('no '+sk.map(k=>({pork:'pork',seafood:'seafood',red:'red meat'}[k]||k)).join(', '));const el=$('#more-sum');if(el)el.textContent=bits.join(' · ')}
   $('#sort').value=S.sort;
+  document.querySelectorAll('#filters .fpill[data-f]').forEach(b=>b.setAttribute('aria-pressed',!!S.f[b.dataset.f]));
+  document.querySelectorAll('#f-prot .chip').forEach(b=>b.setAttribute('aria-pressed',S.f.prot.includes(b.dataset.p)));
+  $('#f-prot-n').textContent=S.f.prot.length?S.f.prot.length:'';$('#f-prot').classList.toggle('on',!!S.f.prot.length);
+  $('#f-clear').hidden=!fOn();
 }
 const tierOf=r=>r.tier||'everyday';
 const IMG=(window.DOCKET_IMG||{}).recipes||{};
@@ -176,19 +189,20 @@ function renderCards(){
   $('#col-note').textContent=COL_NOTE[S.col]||'';
   const PICKS=weekPicks();
   if(S.col==='picks')$('#col-note').textContent=`Quick, good value and in season for the week of ${SEA.weekLabel()}. Refreshed every Wednesday.`;
-  let list=R.filter(allowed).filter(r=>inCol(r,PICKS)||S.sel.includes(r.id));
+  let list=R.filter(allowed).filter(r=>(inCol(r,PICKS)&&passF(r))||S.sel.includes(r.id));
   const low=list.filter(r=>serveProt(r)<S.minProt&&!S.sel.includes(r.id));
   list=list.filter(r=>serveProt(r)>=S.minProt||S.sel.includes(r.id));
   const key={cost:r=>serveCost(r),prot:r=>-serveProt(r),time:r=>r.t}[S.sort];
   list.sort((a,b)=>key(a)-key(b));
   $('#cards').innerHTML=list.map(r=>{
     const sel=S.sel.includes(r.id);const p=serveProt(r);const g=gfType(r);
+    const pv=protOf(r);const flag=!RS.canSee(r.id,PICKS)?'<span class="cflag lock">Members</span>':SEA.isNew(r)?'<span class="cflag new">New</span>':PICKS.includes(r.id)&&S.col!=='picks'?'<span class="cflag pick">This week</span>':tierOf(r)==='premium'?'<span class="cflag prem">Premium</span>':tierOf(r)==='lighter'?'<span class="cflag light">Lighter</span>':'';
+    const facts=[timeLabel(r),`${Math.round(p)}g protein`,g==='yes'?'Gluten free':'GF swap',r.big&&spm()<4?'Best for 4+':'',SEA.recipe(r).isIn?'In season':''].filter(Boolean);
     return`<article class="card tier-${tierOf(r)}${sel?' sel':''}${!sel&&full?' off':''}">
-      ${imgOf(r,640)?`<div class="card-img"><img src="${imgOf(r,640)}" alt="${esc(r.n)}" loading="lazy" width="640" height="480"></div>`:''}
-      <div class="card-top"><div><div class="card-eyebrow">${tierOf(r)==='premium'?'<span class="tier prem">Premium</span>':tierOf(r)==='lighter'?'<span class="tier light">Lighter</span>':''}${esc(r.c)}</div><h3>${esc(r.n)}</h3><div class="meta">${timeLabel(r)}</div></div>
-      <div class="ticket num"><b>${money(serveCost(r))}</b><small>per serve</small></div></div>
+      ${imgOf(r,640)?`<div class="card-img"><img src="${imgOf(r,640)}" alt="${esc(r.n)}" loading="lazy" width="640" height="480"><div class="ticket num"><b>${money(serveCost(r))}</b><small>per serve</small></div>${flag}</div>`:`<div class="card-art art-${pv}"><span class="art-word">${PROT_WORD[pv]}</span><div class="ticket num"><b>${money(serveCost(r))}</b><small>per serve</small></div>${flag}</div>`}
+      <div class="card-body"><h3>${esc(r.n)}</h3>
       ${r.d?`<p class="blurb">${esc(r.d)}</p>`:''}
-      <div class="badges">${[`<span class="badge p num">${Math.round(p)}g protein</span>`,`<span class="badge">${g==='yes'?'Gluten free':'GF swap'}</span>`,!RS.canSee(r.id,PICKS)?'<span class="badge lock">Members</span>':'',r.big&&spm()<4?'<span class="badge big">Best for 4+ serves</span>':'',SEA.isNew(r)?'<span class="badge new">New</span>':'',PICKS.includes(r.id)&&S.col!=='picks'?'<span class="badge pick">This week</span>':'',r.t<=30?'<span class="badge quick">Quick</span>':'',SEA.recipe(r).isIn?'<span class="badge season">In season</span>':''].filter(Boolean).slice(0,4).join('')}</div>
+      <p class="facts num">${facts.map(esc).join(' · ')}</p></div>
       <div class="card-actions"><button class="btn ghost view" data-id="${r.id}">Recipe</button>
       <button class="btn ghost pick" data-id="${r.id}" ${!sel&&full?'disabled':''} aria-pressed="${sel}">${sel?'✓ Picked':'Add'}</button></div></article>`}).join('');
   const blocked=R.length-R.filter(allowed).length;
@@ -210,6 +224,10 @@ function renderWeek(w){
   const carry=w.total-w.eaten;$('#carry').innerHTML=S.sel.length&&carry>2?`Food you'll eat this week: <b>${money(w.eaten,0)}</b>. The other ${money(carry,0)} stays in the fridge and pantry for next week.`:'';
   $('#st-prot').textContent=Math.round(w.prot)+'g';
   $('#st-picked').textContent=`${S.sel.length}/${S.dinners}`;
+  {const sb=$('#sbar');if(sb){const hfv=KITS[0]?kitCost(KITS[0],spm(),S.sel.length):0;const dd=hfv-w.eaten;
+   sb.hidden=!S.sel.length;$('#sb-count').textContent=`${S.sel.length}/${S.dinners} dinners`;$('#sb-total').textContent=money(w.total,0);
+   $('#sb-save').textContent=S.sel.length&&dd>0?`${money(dd,0)} under ${KITS[0].n}`:'';
+   $('#sb-go').textContent=S.sel.length>=S.dinners?'See my list':'Keep picking';}}
   $('#picked').innerHTML=S.sel.map(id=>{const r=R.find(x=>x.id===id);return`<li class="pk-${tierOf(r)}"><span>${esc(r.n)}</span><span class="num">${money(serveCost(r))}</span></li>`}).join('')+S.treats.map(id=>{const r=byId(id);return`<li class="pk-treat"><span>${esc(r.n)} <small>treat</small></span><span class="num">${money(batchCost(r))}</span></li>`}).join('');
   // Kit tax
   const n=spm();const rows=KITS.map(k=>({n:kitLabel(k),v:kitCost(k,n,S.sel.length),ready:!!k.ready}));
@@ -273,7 +291,7 @@ function openRecipe(id){
   const checks=[...new Set(r.i.filter(([i])=>ING[i].ck).map(([i])=>ING[i].n))];
   $('#dlg-in').innerHTML=`${imgOf(r,1200)?`<div class="dlg-img"><img src="${imgOf(r,1200)}" alt="${esc(r.n)}"></div>`:''}<div class="dlg-head"><div><span class="eyebrow">${esc(r.c)} · ${timeLabel(r)}${tr?` · makes ${r.mk} ${esc(r.mu)}`:''}</span><h2>${esc(r.n)}</h2></div><button class="x" id="dlg-x" aria-label="Close">×</button></div>
    ${r.d?`<p class="lead-sm">${esc(r.d)}</p>`:''}
-   <div class="badges" style="margin-top:10px">${tr?`<span class="badge num">${money(batchCost(r))} a batch at ${STORE_NAME[S.store]}</span>`:`<span class="badge p num">${Math.round(serveProt(r))}g protein/serve</span><span class="badge num">${money(serveCost(r))}/serve at ${STORE_NAME[S.store]}</span>`}<span class="badge">${g==='yes'?'Gluten free':'GF swap'}</span></div>
+   ${tr?'':`<div class="dstats num"><div><small>Total</small><b>${r.t} min</b></div>${r.h?`<div><small>Hands-on</small><b>${r.h} min</b></div>`:''}<div><small>Protein</small><b>${Math.round(serveProt(r))}g</b></div><div><small>Per serve</small><b>${money(serveCost(r))}</b></div></div>`}<div class="badges" style="margin-top:10px">${tr?`<span class="badge num">${money(batchCost(r))} a batch at ${STORE_NAME[S.store]}</span>`:''}<span class="badge">${g==='yes'?'Gluten free':'GF swap'}</span></div>
    <div class="dlg-cols"><div>${canSee(id)?`<h3>${tr?'For one batch':`For ${n} serves`}</h3><ul class="ing">${lines.map(([i,a])=>`<li><span>${esc(iname(i))}</span><b class="num">${kAmt(i,a,tr)}</b></li>`).join('')}</ul><p class="hint" style="margin-top:8px">${tr?'Plus a pinch of salt.':'Plus oil, salt and pepper.'}</p>`:`<h3>What's in it</h3><ul class="ing names">${lines.map(([i])=>`<li><span>${esc(iname(i))}</span></li>`).join('')}</ul><p class="hint" style="margin-top:8px">${tr?'Amounts':`Amounts for your ${n} serves`} unlock with the method.</p>`}</div>
    <div id="dlg-method">${canSee(id)?'<h3>Method</h3><p class="hint">Loading the method...</p>':lockedHTML()}</div></div>
    <div id="dlg-notes"></div>
@@ -315,6 +333,11 @@ $('#prot').addEventListener('input',e=>{S.minProt=+e.target.value;render()});
 $('#store').addEventListener('click',e=>{const b=e.target.closest('button');if(b){S.store=b.dataset.s;render()}});
 $('#skips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;S.skip[b.dataset.k]=!S.skip[b.dataset.k];S.sel=S.sel.filter(id=>allowed(R.find(r=>r.id===id)));render()});
 $('#sort').onchange=e=>{S.sort=e.target.value;render()};
+{const g=$('#sb-go');if(g)g.onclick=()=>{const t=S.sel.length>=S.dinners?$('#list-h'):$('#menu-h');if(t)t.scrollIntoView({behavior:'smooth',block:'start'})}}
+$('#filters').addEventListener('click',e=>{const p=e.target.closest('#f-prot .chip');if(p){const k=p.dataset.p;S.f.prot=S.f.prot.includes(k)?S.f.prot.filter(x=>x!==k):[...S.f.prot,k];render();return}
+  const b=e.target.closest('.fpill[data-f]');if(b){S.f[b.dataset.f]=!S.f[b.dataset.f];render();return}
+  if(e.target.closest('#f-clear')){S.f={prot:[],quick:false,cheap:false,gf:false};$('#f-prot').open=false;render()}});
+window.addEventListener('click',e=>{const d=$('#f-prot');if(d&&d.open&&!d.contains(e.target))d.open=false});
 $('#cols').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;S.col=b.dataset.c;try{history.replaceState(null,'',S.col==='all'?location.pathname:'#'+S.col)}catch(err){}render()});
 $('#cards').addEventListener('click',e=>{
   const v=e.target.closest('.view');if(v){openRecipe(v.dataset.id);return}
