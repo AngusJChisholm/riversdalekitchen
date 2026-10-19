@@ -255,6 +255,8 @@ function renderKitCfg(){
   const n=spm();const box=k=>{if(k.ready)return'single serves';const sz=Object.keys(k.t).map(Number);return sz.join(', ')+'-person boxes'};
   $('#kitgrid').innerHTML=KITS.map(k=>`<div class="kitsrc"><b>${esc(kitLabel(k))}</b> <span>${k.ready?money(k.ps)+' a meal':box(k)+', '+money(k.del)+' delivery'}</span><small>${esc(k.src)}${k.prot?`. Protein: ${esc(k.protSrc)}`:''}</small></div>`).join('');
 }
+// Shop button on each list item: the exact product page when the price feed has it, otherwise a store search for the matched product
+function shopLink(id){if(S.store==='aldi')return null;const pr=(PRICES[S.store]||{})[id];if(pr&&pr.u)return pr.u;const q=encodeURIComponent(((pr&&pr.name)||ING[id].n).replace(/\s*\([^)]*\)/g,'').replace(/\s+approx\..*$/i,'').trim());return S.store==='coles'?'https://www.coles.com.au/search/products?q='+q:'https://www.woolworths.com.au/shop/search/products?searchTerm='+q}
 function renderList(w){
   const by={};w.items.forEach(x=>{(by[ING[x.id].a]??=[]).push(x)});
   const order=['M','F','D','Z','P','B','G','K'];
@@ -264,7 +266,7 @@ function renderList(w){
     const spare=x.left>0&&it.u!=='ea'&&x.bought&&x.left/x.bought>.15?`${fmtAmt(x.id,x.left)} spare`:'';
     const bits=x.pan?[`Using ${kAmt(x.id,x.amt)}`,`if you're out, ${packLabel(x.id,x.pk)} ${money(x.pack)}`]:[`Buy ${x.label}`,`need ${fmtAmt(x.id,x.amt)}`,spare];
     if(it.ck)bits.push('check the GF label');
-    return`<label class="item${done?' done':''}" for="${k}"><input type="checkbox" id="${k}" data-id="${x.id}" ${done?'checked':''}><span class="what"><span class="nm">${esc(it.n)}${x.sp?'<span class="tag sp">Special</span>':''}</span><small>${bits.filter(Boolean).join(' · ')}${x.fb?' · <span class="flag">Not at Aldi, priced at Coles</span>':''}</small></span><span class="c num">${x.pan?'≈':''}${money(x.cost)}</span></label>`}).join('')}${a==='K'?'</details>':''}</div>`).join('');
+    return`<label class="item${done?' done':''}" for="${k}"><input type="checkbox" id="${k}" data-id="${x.id}" ${done?'checked':''}><span class="what"><span class="nm">${esc(it.n)}${x.sp?'<span class="tag sp">Special</span>':''}</span><small>${bits.filter(Boolean).join(' · ')}${x.fb?' · <span class="flag">Not at Aldi, priced at Coles</span>':''}</small></span><span class="c num">${x.pan?'≈':''}${money(x.cost)}</span>${shopLink(x.id)?`<a class="shop-go" href="${shopLink(x.id)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" aria-label="Open ${esc(it.n)} at ${STORE_NAME[S.store]}"><span class="sg-t">${STORE_NAME[S.store]} </span><span aria-hidden="true">↗</span></a>`:''}</label>`}).join('')}${a==='K'?'</details>':''}</div>`).join('');
   $('#list-meta').textContent=`${w.items.length} items · ${money(w.shop)} + ${money(STAPLES,0)} staples`;
   trolley();
   const buyable=w.items.filter(x=>!x.pan);const checked=buyable.filter(x=>x.real).length;

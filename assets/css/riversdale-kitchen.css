@@ -672,3 +672,9 @@ details.more-opts>.ctrls{margin-top:14px}
 .unsub-card form[hidden],.unsub-card p[hidden]{display:none}
 .wrap.unsub{display:block;max-width:600px}.unsub-card{max-width:none}
 .fine-link{display:inline-block;margin-top:6px;color:inherit;text-decoration:underline}
+
+/* Shop buttons on the shopping list */
+#aisles .item{grid-template-columns:24px minmax(0,1fr) auto auto}
+.shop-go{flex:none;align-self:center;margin-left:10px;font-size:12px;font-weight:700;color:var(--green);background:var(--mint);border-radius:999px;padding:5px 10px;text-decoration:none;white-space:nowrap}
+.shop-go:hover{background:var(--green);color:var(--on-green)}
+@media (max-width:600px){.shop-go{margin-left:4px;padding:6px 9px}.shop-go .sg-t{display:none}}

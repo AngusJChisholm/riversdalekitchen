@@ -65,8 +65,10 @@ function normalise(o) {
   const special = !!(pick(o, 'onSpecial', 'isOnSpecial', 'special', 'isSpecial', 'halfPrice') || (was && was > price));
   const inStock = pick(o, 'inStock', 'isAvailable', 'available', 'stock');
   return { store, name: fullName.replace(/\s+/g, ' ').trim(), price, unit: unitOf(o), was: was && was > price ? was : null, special,
-    out: inStock === false || /out of stock|unavailable/i.test(String(inStock)), keyword: pick(o, 'keyword', 'searchTerm', 'query', 'search', 'input.keyword'), url: pick(o, 'url', 'productUrl', 'link') };
+    out: inStock === false || /out of stock|unavailable/i.test(String(inStock)), keyword: pick(o, 'keyword', 'searchTerm', 'query', 'search', 'input.keyword'), url: pick(o, 'url', 'productUrl', 'link') || productUrl(store, pick(o, 'productId', 'stockcode', 'stockCode', 'sku', 'id')) };
 }
+
+const productUrl = (store, id) => !id ? null : store === 'coles' ? `https://www.coles.com.au/product/${id}` : store === 'woolies' ? `https://www.woolworths.com.au/shop/productdetails/${id}` : null;
 
 // ---------- Matching (same rules as admin/prices.html) ----------
 const STOP = new Set(['and', 'the', 'with', 'fresh', 'pack', 'tin', 'jar', 'each', 'bunch', 'free', 'range', 'approx', 'australian', 'coles', 'woolworths', 'aldi', 'rspca', 'approved', 'star', 'half', 'boneless', 'skin', 'fillets', 'rind', 'bought', 'week']);
@@ -153,6 +155,7 @@ for (const store of Object.keys(out)) {
     if (best) {
       if (prev && !best.f.special) { const jump = best.per / (prev.p / (prev.pk || ING[id].pk)); if (jump > 1.6 || jump < .5) { out[store][id] = prev; kept++; continue; } }
       const e = { p: best.p, pk: best.pk, name: best.f.name, at: today };
+      if (best.f.url) e.u = best.f.url; // exact product page, for the shopping list's shop buttons
       if (best.byWeight) e.wt = 1; // priced per kg at the counter
       // Smaller pack for small households: cheapest outlay among packs well under the main one
       const small = list.filter(x => !x.byWeight && x.pk <= best.pk * .75 && x.per <= best.per * 1.8).sort((a, b) => a.p - b.p)[0];
