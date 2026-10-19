@@ -1,0 +1,44 @@
+name: Save last price feed
+
+# Re-downloads the results of recent Apify price runs (no new scrape, no credit used)
+# into data/feed/raw/ so product matching can be checked against real data.
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download recent runs
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+        run: |
+          mkdir -p data/feed/raw
+          ACTOR="toptock~au-grocery-prices"
+          curl -sf "https://api.apify.com/v2/acts/$ACTOR/runs?token=$APIFY_TOKEN&desc=1&limit=10" > /tmp/runs.json
+          python3 - <<'PY'
+          import json,os,urllib.request
+          runs=json.load(open('/tmp/runs.json'))['data']['items']
+          t=os.environ['APIFY_TOKEN']
+          for r in runs:
+            print(r['id'],r['status'],r['startedAt'],r.get('usageTotalUsd'))
+            if r['status']!='SUCCEEDED': continue
+            u=f"https://api.apify.com/v2/datasets/{r['defaultDatasetId']}/items?token={t}&clean=true&format=json"
+            try:
+              items=json.load(urllib.request.urlopen(u))
+            except Exception as e:
+              print('  skip',e); continue
+            print('  items',len(items))
+            json.dump(items,open(f"data/feed/raw/{r['startedAt'][:10]}-{r['id']}.json",'w'))
+          PY
+      - name: Publish
+        run: |
+          git config user.name "Angus Chisholm"
+          git config user.email "AngusJChisholm@users.noreply.github.com"
+          git add data/feed/raw
+          git diff --cached --quiet || git commit -m "Save recent price feed results for checking"
+          git push
