@@ -214,7 +214,7 @@ function renderWeek(w){
   const n=spm();const rows=KITS.map(k=>({n:kitLabel(k),v:kitCost(k,n,S.sel.length),ready:!!k.ready}));
   $('#bars').innerHTML=[`<div class="ln us"><span>Riversdale Kitchen (food eaten)</span><span>${money(w.eaten)}</span></div>`,...rows.map(x=>`<div class="ln kit${x.ready?' ready':''}"><span>${esc(x.n)}</span><span>${money(x.v)}</span></div>`)].join('');
   const hf=rows[0];
-  if(!S.sel.length){$('#dodged').innerHTML='';$('#kt-save').textContent='Pick some dinners to see what the kits would charge.';}
+  if(!S.sel.length){$('#dodged').innerHTML='';$('#kt-prot').innerHTML='';$('#kt-save').textContent='Pick some dinners to see what the kits would charge.';}
   else{
     const s=hf.v-w.eaten;
     const cheaper=rows.filter(r=>r.v<w.eaten);
@@ -223,11 +223,13 @@ function renderWeek(w){
     if(cheaper.length)txt+=` ${cheaper.map(c=>esc(c.n)).join(' and ')} ${cheaper.length>1?'are':'is'} cheaper on price alone this week. Riversdale Kitchen dinners average ${Math.round(w.prot)}g protein a serve.`;
     else{const lo=rows.reduce((a,b)=>b.v<a.v?b:a);if(lo!==hf&&lo.v>w.eaten)txt+=` Even the cheapest, ${esc(lo.n)}, costs ${money(lo.v-w.eaten,0)} more.`}
     $('#kt-save').innerHTML=txt.trim();
+    const k0=KITS[0],m=kitProtCost(k0,n,S.sel.length,w.prot);
+    $('#kt-prot').innerHTML=m!=null&&w.prot>k0.prot?`<div class="dodged pm"><span>KIT TAX · SAME PROTEIN</span><b class="num">${money(m-w.eaten)}</b></div><p class="kt-save num">${esc(k0.n)} averages ${k0.prot}g protein a serve. Your picks average ${Math.round(w.prot)}g. That much protein from ${esc(k0.n)} would cost ${money(m)}, so you keep ${money((m-w.eaten)*52,0)} a year.</p>`:'';
   }
 }
 function renderKitCfg(){
   const n=spm();const box=k=>{if(k.ready)return'single serves';const sz=Object.keys(k.t).map(Number);return sz.join(', ')+'-person boxes'};
-  $('#kitgrid').innerHTML=KITS.map(k=>`<div class="kitsrc"><b>${esc(kitLabel(k))}</b> <span>${k.ready?money(k.ps)+' a meal':box(k)+', '+money(k.del)+' delivery'}</span><small>${esc(k.src)}</small></div>`).join('');
+  $('#kitgrid').innerHTML=KITS.map(k=>`<div class="kitsrc"><b>${esc(kitLabel(k))}</b> <span>${k.ready?money(k.ps)+' a meal':box(k)+', '+money(k.del)+' delivery'}</span><small>${esc(k.src)}${k.prot?`. Protein: ${esc(k.protSrc)}`:''}</small></div>`).join('');
 }
 function renderList(w){
   const by={};w.items.forEach(x=>{(by[ING[x.id].a]??=[]).push(x)});

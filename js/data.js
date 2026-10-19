@@ -435,7 +435,8 @@ const T=[
 // del = delivery per box. Where sources differ we use the lower fee, so we never overstate what a kit costs.
 const KITS=[
  {n:'HelloFresh',del:9.99,t:{2:{2:14.99,3:12.99,4:12.29,5:11.69,6:11.29},3:{2:14.19,3:11.99,4:11.49,5:10.59,6:9.99},4:{2:13.59,3:11.29,4:10.39,5:9.59,6:8.99},5:{2:12.99,3:10.99,4:10.29,5:9.49,6:8.89},6:{2:12.49,3:10.49,4:9.69,5:8.89,6:8.59}},
-  src:'hellofresh.com.au/meal-kits/meal-plans (checked 14 Oct 2026); delivery $9.99 per deliveryrank.com Apr 2026 (Tom\'s Guide reports $11.99)'},
+  src:'hellofresh.com.au/meal-kits/meal-plans (checked 14 Oct 2026); delivery $9.99 per deliveryrank.com Apr 2026 (Tom\'s Guide reports $11.99)',
+  prot:42.5,protSrc:'median protein per serve across 18 HelloFresh recipes, from the nutrition panels on hellofresh.com.au (checked 19 Oct 2026, list in data/kit-protein.json)'},
  {n:'Marley Spoon',del:11.99,t:{2:{2:13.99,3:12.99,4:11.99,5:11.49,6:10.99},4:{2:11.99,3:10.99,4:9.99,5:8.99,6:7.99}},
   src:'deliveryrank.com Marley Spoon AU review (Dec 2025); delivery $11.99 per Marley Spoon help centre'},
  {n:'Dinnerly',del:11.99,t:{2:{2:9.85,3:8.49,4:7.99,5:7.49,6:7.28},4:{2:7.79,3:6.99,4:6.69,5:6.49,6:5.49}},
@@ -456,5 +457,11 @@ function kitCost(k,perMeal,dinners){
   const sizes=Object.keys(k.t).map(Number);let best=Infinity;
   const go=(boxes,serves,cost)=>{if(serves>=perMeal){best=Math.min(best,cost);return}if(boxes>=4)return;for(const b of sizes)go(boxes+1,serves+b,cost+dinners*b*rate(b,dinners)+k.del)};
   go(0,0,0);return best;
+}
+// Protein-matched: what the kit would cost to give you the same protein as our dinners.
+// Only for kits with a sourced protein figure (prot, g a serve from their own nutrition panels).
+function kitProtCost(k,perMeal,dinners,ourProt){
+  if(!k.prot||!ourProt)return null;
+  return kitCost(k,perMeal,dinners)*ourProt/k.prot;
 }
 const kitLabel=k=>k.ready?k.n+' (ready meals)':k.n;

@@ -38,7 +38,17 @@
       </div>
       ${saved > 0 ? `<div class="dodged"><span>KIT TAX DODGED</span><b class="num">${money(saved)}</b></div>
       <p class="kt-save num">vs ${esc(hf.n)}. That's ${money(saved * 52, 0)} a year.</p>` : ''}
+      ${protHTML(KITS[0], w.perMeal, w.serves / w.perMeal, AVGP, w.docket)}
       ${cheaper.length ? `<p class="kt-note">${cheaper.join(' and ')} ${cheaper.length > 1 ? 'are' : 'is'} cheaper on price alone. Riversdale Kitchen dinners average ${AVGP}g protein a serve.</p>` : ''}`;
+  }
+
+  // Same protein: what the kit would cost to match our protein a serve
+  function protHTML(k, perMeal, dinners, ourProt, ours) {
+    const m = kitProtCost(k, perMeal, dinners, ourProt);
+    if (m == null || ourProt <= k.prot) return '';
+    const kept = m - ours;
+    return `<div class="dodged pm"><span>KIT TAX · SAME PROTEIN</span><b class="num">${money(kept)}</b></div>
+      <p class="kt-save num">${esc(k.n)} averages ${k.prot}g protein a serve. Ours average ${Math.round(ourProt)}g. Getting that much protein from ${esc(k.n)} would cost ${money(m)} a week, so you keep ${money(kept * 52, 0)} a year.</p>`;
   }
 
   // Hero: an example week, set like a menu
@@ -52,7 +62,9 @@
     const perMeal = people * (lunch ? 2 : 1), serves = perMeal * pick.length;
     const total = pick.reduce((s, r) => s + serveCost(r) * perMeal, 0) + STAPLES;
     const kit = kitCost(hf, perMeal, pick.length);
-    return { total, kit, serves };
+    const prot = pick.reduce((s, r) => s + serveProt(r), 0) / pick.length;
+    const pkit = kitProtCost(hf, perMeal, pick.length, prot);
+    return { total, kit, serves, prot, pkit };
   }
   let current = null;
   function renderMenu(pick, animate) {
@@ -78,6 +90,7 @@
     $('#mc-body').innerHTML = `<ol class="mc-list${animate ? ' deal' : ''}">${pick.map((r, i) => `<li style="--i:${i}"><span class="mc-day">${days[i]}</span><span class="mc-dish">${esc(r.n)}${tierOf(r) !== 'everyday' ? ` <span class="tier ${tierOf(r) === 'premium' ? 'prem' : 'light'}">${tierOf(r) === 'premium' ? 'Premium' : 'Lighter'}</span>` : ''}</span><span class="mc-lead" aria-hidden="true"></span><span class="mc-pr num">${money(serveCost(r))}</span></li>`).join('')}</ol>
       <div class="mc-foot"><span>Food for the week · ${w.serves} serves</span><b class="num">${money(w.total, 0)}</b></div>
       ${dodged > 0 ? `<div class="mc-dodge"><span>Kit Tax dodged</span><b class="num">${money(dodged, 0)}</b></div>` : ''}
+      ${w.pkit && w.prot > hf.prot ? `<div class="mc-dodge pm"><span>Same protein from ${esc(hf.n)}</span><b class="num">${money(w.pkit - w.total, 0)}</b></div>` : ''}
       ${isPicks && SEA ? `<p class="mc-season">Week of ${SEA.weekLabel()}. Quick, good value and built around what's in season: <b>${esc(SEA.inSeasonNames().slice(0, 5).join(', '))}</b>.</p>` : ''}`;
     $('#hero-serve').textContent = money(w.total / w.serves);
     const tk = document.querySelector('.hang .ticket'); if (animate && tk && !reduce) { tk.classList.remove('bump'); void tk.offsetWidth; tk.classList.add('bump'); }

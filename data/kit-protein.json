@@ -1,0 +1,29 @@
+{
+  "note": "Protein per serving from each meal kit's own published nutrition panel. Median used on the site (less favourable to Riversdale Kitchen than the mean). Base recipes only: no Double protein, Premium or Market add-ons.",
+  "checked": "2026-10-19",
+  "kits": {
+    "HelloFresh": {
+      "median": 42.5, "mean": 41.3, "n": 18,
+      "recipes": [
+        ["Chicken & Creamy Peppercorn Sauce", 39.7, "https://www.hellofresh.com.au/recipes/chicken-creamy-peppercorn-sauce-604ed3d2eda8d46ad32da478"],
+        ["Korean-Style Beef Bibimbap", 47.6, "https://www.hellofresh.com.au/recipes/korean-style-beef-bibimbap-640ea545b3c45de1fd086d85"],
+        ["Aussie-Spiced Chicken Schnitzel", 46.7, "https://www.hellofresh.com.au/recipes/aussie-spiced-chicken-schnitzel-61e751f85b253c042c497bdb"],
+        ["Beef Brisket Loaded Fries", 14.3, "https://www.hellofresh.com.au/recipes/southern-beef-brisket-loaded-fries-65adc605553f74890680db5d"],
+        ["Roast Pork Belly Bao Buns & Hoisin Sauce", 43.2, "https://www.hellofresh.com.au/recipes/roast-pork-belly-bao-buns-and-hoisin-sauce-67f841774264524ca978f903"],
+        ["Rustic Beef Spaghetti Bolognese", 53.8, "https://www.hellofresh.com.au/recipes/rustic-beef-spaghetti-bolognese-6874d6c8c30d33981f9979f4"],
+        ["Quick Vietnamese Coconut & Lemongrass Chicken", 46.2, "https://www.hellofresh.com.au/recipes/quick-vietnamese-coconut-and-lemongrass-chicken-67f8581f0d0527cba53b0893"],
+        ["Sticky Spiced Chicken & Crushed Potatoes", 42.1, "https://www.hellofresh.com.au/recipes/sticky-spiced-chicken-and-crushed-potatoes-67f8414a0d0527cba53a91c4"],
+        ["Seared Salmon & Blistered Cherry Tomatoes", 43.7, "https://www.hellofresh.com.au/recipes/speedy-legumes-seared-salmon-and-blistered-cherry-tomatoes-with-cannelini-beans-and-garlic-yoghurt-68ed7a64a267a9c2fbff9da8"],
+        ["Garlicky Chicken & Potato Wedges", 18.8, "https://www.hellofresh.com.au/recipes/garlicky-chicken-and-smokey-aioli-67b2b009a27a53fcaa21ea4a"],
+        ["Easy Chorizo & Veggie Traybake", 38.6, "https://www.hellofresh.com.au/recipes/easy-chorizo-and-veggie-traybake-63a4f1a7d94aff443908c14b"],
+        ["Seared Beef Rump & Parmesan Sauce", 42.5, "https://www.hellofresh.com.au/recipes/seared-beef-rump-and-parmesan-sauce-6563f3e7c79d741428512c0f"],
+        ["Beef Ragu Tortellini", 47.2, "https://www.hellofresh.com.au/recipes/beef-ragu-tortellini-67f85f384264524ca97994d6"],
+        ["Beef & Walnut Meatloaves", 36.8, "https://www.hellofresh.com.au/recipes/beef-and-walnut-meatloaves-67f8607c4264524ca9799d00"],
+        ["American-Spiced Prawns & Garlic Rice", 23.5, "https://www.hellofresh.com.au/recipes/american-spiced-prawns-and-garlic-rice-6181dc6f00dea46eb12116b9"],
+        ["Seared Chicken & Veggie Fries", 40.5, "https://www.hellofresh.com.au/recipes/seared-chicken-and-veggie-fries-67f8672a4264524ca979c8f7"],
+        ["Gochujang Lamb & Prawn Bibimbap Bowl", 74.8, "https://www.hellofresh.com.au/recipes/gochujang-lamb-and-prawn-bibimbap-bowl-68d09124344d2237db7974ee"],
+        ["Garlic & Herb Chicken", 42.6, "https://www.hellofresh.com.au/recipes/garlic-and-herb-chicken-5efbfc55a957e1699d6fee2b"]
+      ]
+    }
+  }
+}
