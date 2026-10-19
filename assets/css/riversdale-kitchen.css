@@ -7,16 +7,8 @@
   --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
   --r-sm:10px; --r-md:16px; --r-lg:24px;
+  color-scheme:only light; /* always the light brand look, even when the device is in dark mode */
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#121614; --surface:#1B201D; --sunk:#232A26; --ink:#EEF2EC; --muted:#A5AEA8; --line:#2E3631;
-  --green:#7FD3A6; --on-green:#0B1A12; --mint:#1E3A2B; --ticket:#FFE073; --on-ticket:#1C1A0E;
-  --markup:#FF9C7A; --peach:#43271D; --bad:#FF9C7A; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#121614; --surface:#1B201D; --sunk:#232A26; --ink:#EEF2EC; --muted:#A5AEA8; --line:#2E3631;
-  --green:#7FD3A6; --on-green:#0B1A12; --mint:#1E3A2B; --ticket:#FFE073; --on-ticket:#1C1A0E;
-  --markup:#FF9C7A; --peach:#43271D; --bad:#FF9C7A; color-scheme:dark}
-
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
 button,input,select{font:inherit;color:inherit}
@@ -250,8 +242,6 @@ a{color:var(--green)}
 
 /* ---------- Premium refresh ---------- */
 :root{--shadow:0 1px 2px rgb(20 40 30 / .04),0 8px 24px -12px rgb(20 40 30 / .18)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--shadow:0 1px 2px rgb(0 0 0 / .3),0 10px 30px -12px rgb(0 0 0 / .6)}}
-:root[data-theme="dark"]{--shadow:0 1px 2px rgb(0 0 0 / .3),0 10px 30px -12px rgb(0 0 0 / .6)}
 body{font-size:15.5px;-webkit-font-smoothing:antialiased}
 .nav-in{height:72px}
 .nav-links{gap:28px}
@@ -485,7 +475,6 @@ body{margin:0}
 .w-lead{align-self:start;margin-top:13px;border-bottom:2px dotted var(--line);min-width:16px}
 .w-pr{align-self:start;font-family:var(--display);font-weight:900;font-size:20px;margin-top:1px}
 @media (max-width:760px){.wins{grid-template-columns:minmax(0,1fr)}}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .how li{border-top-color:var(--line)}}
 
 /* FAQ as plain rows, not boxes */
 .faq{display:block;max-width:46em;border-top:1px solid var(--line)}
