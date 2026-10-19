@@ -5,7 +5,7 @@ window.DOCKET_CONFIG = {
   waitlistEndpoint: "https://script.google.com/macros/s/AKfycbwZ3B5Z9zJ3tfbra-SSOigRjbti_iKyy5J8N4jDWRekUW3WmhkxcE8_JZwtZZAmQW84-A/exec",
   // Ask for an email before the planner opens. false = planner open to everyone.
   plannerGate: true,
-  // The Riversdale Kitchen mailer (Cloudflare Worker) URL that emails the PDFs, e.g. "https://riversdale-fresh-mailer.yourname.workers.dev/send".
+  // The Riversdale Kitchen mailer (Cloudflare Worker) URL that emails the PDFs, e.g. "https://riversdale-kitchen-mailer.yourname.workers.dev/send".
   // Leave empty and "Send my plan" downloads the PDFs instead.
   emailEndpoint: "",
   // Weekly allowance for pantry staples (oil, salt, pepper, sugar), added to every Riversdale Kitchen total.

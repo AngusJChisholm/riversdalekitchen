@@ -15,7 +15,7 @@ A static site: no build step, no framework. Open `index.html` in a browser to ru
 | `js/planner.js`, `js/home.js` | Page logic |
 | `js/pdf.js` | Builds the shopping list and recipe PDFs in the browser |
 | `worker/` | The Riversdale Kitchen mailer that emails the PDFs. Setup steps in `worker/SETUP.md` |
-| `assets/css/riversdale-fresh.css` | All styles, built from the Riversdale Kitchen brand colours |
+| `assets/css/riversdale-kitchen.css` | All styles, built from the Riversdale Kitchen brand colours |
 | `assets/img/` | Logo, icon, favicon, ticket and social share image |
 
 ## Common updates

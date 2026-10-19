@@ -3,7 +3,7 @@
 Until this is set up, "Send my plan" downloads the PDFs instead. About 20 minutes, all free except the domain.
 
 ## 1. Buy a domain
-Buy something like `riversdalefresh.com.au` (a .com.au needs an ABN) or `riversdalefresh.com`. Any registrar works; Cloudflare Registrar is the cheapest and makes step 2 easier.
+You already own `riversdalekitchen.com.au`, so use that. Any registrar works; Cloudflare Registrar is the cheapest and makes step 2 easier.
 
 ## 2. Resend (sends the emails)
 1. Sign up at resend.com.

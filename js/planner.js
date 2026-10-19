@@ -292,7 +292,7 @@ $('#dlg').addEventListener('click',e=>{if(e.target.id==='dlg')e.target.close()})
 // ---------- Plain text plan ----------
 function planText(){
   const w=week();const n=spm();
-  let t=`DOCKET · Your week at ${STORE_NAME[S.store]}\n${S.people} people${S.lunch?' + lunches':''} · ${S.sel.length} dinners · ${w.serves} serves${S.treats.length?` · ${S.treats.length} sweet treat${S.treats.length>1?'s':''}`:''}\nEstimated shop: ${money(w.total)} (${money(w.total/Math.max(1,w.serves))} per serve)\n\nSHOPPING LIST\n`;
+  let t=`RIVERSDALE KITCHEN · Your week at ${STORE_NAME[S.store]}\n${S.people} people${S.lunch?' + lunches':''} · ${S.sel.length} dinners · ${w.serves} serves${S.treats.length?` · ${S.treats.length} sweet treat${S.treats.length>1?'s':''}`:''}\nEstimated shop: ${money(w.total)} (${money(w.total/Math.max(1,w.serves))} per serve)\n\nSHOPPING LIST\n`;
   const by={};w.items.forEach(x=>{(by[ING[x.id].a]??=[]).push(x)});
   ['M','F','D','Z','P','B','G','K'].filter(a=>by[a]).forEach(a=>{t+=`\n${AISLE[a].toUpperCase()}\n`;by[a].forEach(x=>{t+=x.pan?`[ ] ${ING[x.id].n} (check pantry, using ${kAmt(x.id,x.amt)})\n`:`[ ] ${ING[x.id].n}: ${x.label} (${money(x.cost)})\n`})});
   t+=`\nRECIPES\n`;
@@ -367,7 +367,7 @@ $('#pdfs').onclick=()=>downloadPdfs('one');
 $('#pdfs-split').onclick=()=>downloadPdfs('split');
 function listText(){
   const w=week();
-  let t=`DOCKET · ${STORE_NAME[S.store]} · est. ${money(w.total)}\n`;
+  let t=`RIVERSDALE KITCHEN · ${STORE_NAME[S.store]} · est. ${money(w.total)}\n`;
   const by={};w.items.forEach(x=>{(by[ING[x.id].a]??=[]).push(x)});
   ['M','F','D','Z','P','B','G','K'].filter(a=>by[a]).forEach(a=>{t+=`\n${AISLE[a].toUpperCase()}\n`;by[a].forEach(x=>{t+=`[ ] ${ING[x.id].n}: ${x.label||'check pantry'}\n`})});
   t+=`\nDINNERS: ${S.sel.map(id=>R.find(r=>r.id===id).n).join(', ')}`;if(S.treats.length)t+=`\nTREATS: ${S.treats.map(id=>byId(id).n).join(', ')}`;
