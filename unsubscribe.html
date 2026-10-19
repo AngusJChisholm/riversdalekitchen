@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="only light">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Unsubscribe · Riversdale Kitchen</title>
+<meta name="description" content="Stop emails from Riversdale Kitchen.">
+<link rel="canonical" href="https://riversdalekitchen.com.au/unsubscribe.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#CFEBD8">
+<link rel="icon" href="assets/img/riversdale-favicon.ico" sizes="any">
+<link rel="icon" href="assets/img/riversdale-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/riversdale-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,700..900&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="assets/css/riversdale-kitchen.css?v=202610200150">
+<meta name="robots" content="noindex">
+</head>
+<body>
+<nav class="nav" aria-label="Main"><div class="nav-in">
+  <a class="logo" href="index.html" aria-label="Riversdale Kitchen home"><span class="wm">Riversdale Kitchen</span></a>
+  <div class="nav-links">
+    <a href="index.html#how">How it works</a>
+    <a href="index.html#collections">Dinners</a>
+    <a href="index.html#kit-tax">Kit Tax</a>
+    <a href="index.html#story">Our story</a>
+    <a class="btn" href="plan.html">Plan my week</a>
+  </div>
+</div></nav>
+
+<main class="wrap unsub" id="main">
+  <section class="panel unsub-card" aria-labelledby="unsub-h">
+    <h1 id="unsub-h">Unsubscribe</h1>
+    <p id="unsub-lead">Put in the email you signed up with and we'll take you off the list. You can still use the planner any time.</p>
+    <form id="unsub-form" novalidate>
+      <label for="unsub-email" class="skip">Email address</label>
+      <input id="unsub-email" type="email" placeholder="you@example.com" autocomplete="email" required>
+      <button class="btn" type="submit">Unsubscribe me</button>
+    </form>
+    <p class="msg" id="unsub-msg" role="status"></p>
+  </section>
+</main>
+
+<footer class="site-foot"><div class="foot-in">
+  <div><a class="logo" href="index.html" aria-label="Riversdale Kitchen home"><span class="wm">Riversdale Kitchen</span></a><p style="margin:8px 0 0">Meal kit dinners. Supermarket prices.</p></div>
+  <div class="foot-links"><a href="plan.html">Plan my week</a><a href="index.html#kit-tax">The Kit Tax</a><a href="index.html#faq">FAQ</a><a href="index.html#join">Join the list</a><a href="unsubscribe.html">Unsubscribe</a></div>
+  <p class="fine">Prices are estimates while Riversdale Kitchen is in beta. Meal-kit comparisons use each kit's ongoing price per serve for the matching box size, plus delivery, from the kits' own pricing pages and independent reviews, checked October 2026. Riversdale Kitchen isn't affiliated with HelloFresh, Marley Spoon, Dinnerly, EveryPlate, My Muscle Chef, Youfoodz, Coles, Woolworths or Aldi. © 2026 Riversdale Kitchen.</p>
+</div></footer>
+<script src="js/config.js?v=202610200150"></script>
+<script src="js/recipes.js?v=202610200150"></script>
+<script>
+(function(){
+  const f=document.getElementById('unsub-form'),i=document.getElementById('unsub-email'),m=document.getElementById('unsub-msg');
+  try{const q=new URLSearchParams(location.search).get('email');if(q)i.value=q}catch(e){}
+  f.addEventListener('submit',async e=>{
+    e.preventDefault();const v=i.value.trim().toLowerCase();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){m.textContent='Enter an email address like you@example.com.';return}
+    f.querySelector('button').disabled=true;m.textContent='Taking you off the list...';
+    try{await window.DocketRecipes.send({email:v,action:'unsubscribe',source:'unsubscribe'});
+      f.hidden=true;document.getElementById('unsub-lead').hidden=true;
+      m.innerHTML='<b>Done. '+v.replace(/[<>&"]/g,'')+' is unsubscribed.</b> You won\'t get any more emails from us. Changed your mind? <a href="index.html#join">Join again</a>.';
+    }catch(err){f.querySelector('button').disabled=false;m.textContent="That didn't go through. Check your connection and try again."}
+  });
+})();
+</script>
+<script src="js/site.js?v=202610200150"></script>
+</body>
+</html>

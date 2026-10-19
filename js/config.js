@@ -12,5 +12,5 @@ window.DOCKET_CONFIG = {
   staplesPerWeek: 10,
   // Who can see the full recipes. 'open' = everyone, no sign-up. 'email' = this week's picks free,
   // the rest free with an email. 'pro' = paid members only (needs recipeEndpoint).
-  recipeAccess: 'open'
+  recipeAccess: 'email'
 };

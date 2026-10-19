@@ -665,3 +665,14 @@ details.more-opts>.ctrls{margin-top:14px}
 .pmline{font-family:var(--body);font-size:13px;line-height:1.35;align-items:center}
 .pmline small{display:block;font-family:var(--mono);margin-top:2px}
 .dodged.stamp span{font-family:var(--mono);letter-spacing:.06em}
+
+/* Unsubscribe page */
+.unsub{max-width:560px}
+.unsub-card{margin:40px auto 80px;padding:32px}
+.unsub-card h1{margin:0 0 8px;font-family:var(--display);font-weight:900;font-size:40px;letter-spacing:-.02em}
+.unsub-card form{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}
+.unsub-card input{flex:1;min-width:200px;border:1.5px solid var(--line);border-radius:999px;padding:12px 16px;font-size:16px;background:#fff}
+.unsub-card .msg{margin-top:14px}
+.unsub{margin-left:auto;margin-right:auto}
+.unsub-card form[hidden],.unsub-card p[hidden]{display:none}
+.wrap.unsub{display:block;max-width:600px}.unsub-card{max-width:none}

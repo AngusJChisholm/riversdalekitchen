@@ -21,7 +21,7 @@ If you change the script later, use **Deploy > Manage deployments > Edit > New v
 ## The script
 
 ```js
-// Riversdale Kitchen sign-ups: receives emails from the website and adds one row per person.
+// Riversdale Kitchen sign-ups: one row per person. Handles sign-ups and unsubscribes from the website.
 function doPost(e) {
   const lock = LockService.getScriptLock();
   lock.waitLock(10000);
@@ -31,13 +31,22 @@ function doPost(e) {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) || email.length > 200) return out({ ok: false });
 
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
-    if (sheet.getLastRow() === 0) sheet.appendRow(['Signed up (Melbourne)', 'Email', 'Source', 'Page']);
+    if (sheet.getLastRow() === 0) sheet.appendRow(['Signed up (Melbourne)', 'Email', 'Source', 'Page', 'Unsubscribed']);
+    if (sheet.getRange(1, 5).getValue() === '') sheet.getRange(1, 5).setValue('Unsubscribed');
+    const when = Utilities.formatDate(new Date(), 'Australia/Melbourne', 'yyyy-MM-dd HH:mm');
     const last = sheet.getLastRow();
-    const existing = last > 1 ? sheet.getRange(2, 2, last - 1, 1).getValues().flat() : [];
-    if (existing.indexOf(email) === -1) {
-      const when = Utilities.formatDate(new Date(), 'Australia/Melbourne', 'yyyy-MM-dd HH:mm');
-      sheet.appendRow([when, email, String(data.source || '').slice(0, 40), String(data.page || '').slice(0, 80)]);
+    const emails = last > 1 ? sheet.getRange(2, 2, last - 1, 1).getValues().flat() : [];
+    const i = emails.indexOf(email);
+    const row = i === -1 ? 0 : i + 2;
+
+    if (data.action === 'unsubscribe') {
+      if (row) sheet.getRange(row, 5).setValue(when);
+      else sheet.appendRow(['', email, 'unsubscribe', String(data.page || '').slice(0, 80), when]);
+      return out({ ok: true });
     }
+
+    if (!row) sheet.appendRow([when, email, String(data.source || '').slice(0, 40), String(data.page || '').slice(0, 80), '']);
+    else if (sheet.getRange(row, 5).getValue() !== '') sheet.getRange(row, 5).setValue(''); // signed up again
     return out({ ok: true });
   } finally {
     lock.releaseLock();
@@ -49,9 +58,13 @@ function out(obj) {
 }
 ```
 
+## Updating the script (unsubscribes)
+
+The site has an Unsubscribe page (footer link, or `unsubscribe.html?email=...` from an email). To make it work, paste the script above over the old one, then **Deploy > Manage deployments > pencil icon > Version: New version > Deploy**. The URL stays the same, so nothing on the site changes. Unsubscribed people get a date in column E. Never email anyone with a date there.
+
 ## Notes
 
-- Sources: `planner-gate` (asked before the planner opens), `home-signup` (homepage form), `recipe-unlock`.
+- Sources: `planner-gate` (asked before the planner opens), `home-signup` (homepage form), `recipe-unlock`, `unsubscribe`.
 - Turn the gate off with `plannerGate: false` in `js/config.js`. Add `?nogate` to the planner URL to skip it while testing.
 - Before emailing people in bulk, use a proper email tool (Mailchimp, Kit or Resend) with an unsubscribe link, as Australia's Spam Act requires. Import the sheet as a CSV.
 - Later, when accounts and Pro arrive, this list moves into the real member database.

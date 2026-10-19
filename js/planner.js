@@ -371,7 +371,7 @@ async function makePdfs(mode='one'){
   await RS.load([...S.sel,...S.treats].filter(canSee));
   return DocketPDF.build(S,mode);
 }
-$('#send').onclick=async()=>{
+if($('#send'))$('#send').onclick=async()=>{
   const v=$('#email').value.trim();
   if(!S.sel.length){$('#msg').textContent='Pick at least one dinner first.';return}
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){$('#msg').textContent='Enter an email address like you@example.com.';return}
@@ -411,7 +411,7 @@ function fillPrint(){
 }
 window.addEventListener('beforeprint',fillPrint);
 $('#print').onclick=()=>{if(!S.sel.length){$('#msg').textContent='Pick at least one dinner first.';return}fillPrint();window.print()};
-try{const e=localStorage.getItem('docket-email');if(e)$('#email').value=e}catch(e){}
+try{const e=localStorage.getItem('docket-email');if(e&&$('#email'))$('#email').value=e}catch(e){}
 // First visit: start on this week's picks
 if(fresh&&window.DOCKET_SEASON){if(S.col==='all'&&!location.hash)S.col='picks';S.sel=weekPicks().slice(0,S.dinners)}
 renderKitCfg();render();

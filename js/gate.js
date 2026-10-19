@@ -20,7 +20,7 @@
     <form class="gate-card" id="gate-form" novalidate>
       <span class="eyebrow">Free while we're in beta</span>
       <h2 id="gate-h">Pop your email in to start planning</h2>
-      <p>You'll get the full planner, every recipe and your shopping list. We'll send five dinner ideas each Wednesday, and you can unsubscribe any time.</p>
+      <p>You'll get the full planner, every recipe and your shopping list. We'll only ever email you about Riversdale Kitchen, and you can unsubscribe any time.</p>
       <label class="sr" for="gate-email">Email</label>
       <div class="unlock-form">
         <input id="gate-email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>

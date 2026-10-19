@@ -178,7 +178,7 @@
     try {
       await window.DocketRecipes.send({ email, source: 'home-signup' });
       try { localStorage.setItem('docket-member', email); } catch (e) {}
-      msg.textContent = "You're in. First plan lands Wednesday."; e.target.reset();
+      msg.textContent = "You're on the list. We'll be in touch when the weekly email starts."; e.target.reset();
     } catch (err) { msg.textContent = "That didn't go through. Try again in a minute."; }
   });
 })();
