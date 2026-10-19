@@ -170,12 +170,14 @@ const COL_NOTE={picks:'',quick:'On the table in 30 minutes or less. Weeknight go
 function renderTreats(){
   $('#cards').innerHTML=TR.map(r=>{
     const sel=S.treats.includes(r.id);const g=gfType(r);
+    const flag=!canSee(r.id)?'<span class="cflag lock">Members</span>':'<span class="cflag treat">Sweet treat</span>';
+    const ticket=`<div class="ticket num"><b>${money(batchCost(r))}</b><small>a batch</small></div>`;
+    const facts=[timeLabel(r),`makes ${r.mk} ${r.mu}`,`${money(batchCost(r)/r.mk)} each`,g==='yes'?'Gluten free':'GF swap'];
     return`<article class="card tier-treat${sel?' sel':''}">
-      ${imgOf(r,640)?`<div class="card-img"><img src="${imgOf(r,640)}" alt="${esc(r.n)}" loading="lazy" width="640" height="480"></div>`:''}
-      <div class="card-top"><div><div class="card-eyebrow"><span class="tier treat">Sweet treat</span>${esc(r.c)}</div><h3>${esc(r.n)}</h3><div class="meta">${timeLabel(r)} · makes ${r.mk} ${esc(r.mu)}</div></div>
-      <div class="ticket num"><b>${money(batchCost(r))}</b><small>a batch</small></div></div>
+      ${imgOf(r,640)?`<div class="card-img"><img src="${imgOf(r,640)}" alt="${esc(r.n)}" loading="lazy" width="640" height="480">${ticket}${flag}</div>`:`<div class="card-art art-treat"><span class="art-word">Treat</span>${ticket}${flag}</div>`}
+      <div class="card-body"><h3>${esc(r.n)}</h3>
       ${r.d?`<p class="blurb">${esc(r.d)}</p>`:''}
-      <div class="badges"><span class="badge num">${money(batchCost(r)/r.mk)} each</span><span class="badge">${g==='yes'?'Gluten free':'GF swap'}</span>${!canSee(r.id)?'<span class="badge lock">Members</span>':''}</div>
+      <p class="facts num">${facts.map(esc).join(' · ')}</p></div>
       <div class="card-actions"><button class="btn ghost view" data-id="${r.id}">Recipe</button>
       <button class="btn ghost pick" data-id="${r.id}" data-treat="1" aria-pressed="${sel}">${sel?'✓ Added':'Add'}</button></div></article>`}).join('');
   $('#hidden-note').textContent='';

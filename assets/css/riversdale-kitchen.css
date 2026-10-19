@@ -502,12 +502,6 @@ body{margin:0}
 
 /* Sweet treats: optional extras, styled peach so they read apart from dinners */
 .tier.treat{background:var(--peach);color:var(--markup)}
-.card.tier-treat .tier.treat{background:var(--surface)}
-.card.tier-treat{background:var(--peach);border-color:var(--peach)}
-.card.tier-treat .ticket::before{background:var(--peach)}
-.card.tier-treat .badge{background:var(--surface)}
-.card.tier-treat .btn.ghost{background:var(--surface);border-color:transparent}
-.card.tier-treat.sel .pick{background:var(--green);border-color:var(--green);color:var(--on-green)}
 .collections button[data-c="treats"]::before{background:var(--peach);border-color:var(--markup)}
 .picked li.pk-treat::before{background:var(--peach);border-color:var(--markup)}
 .picked li small{color:var(--muted);font-weight:400}
@@ -521,6 +515,7 @@ body{margin:0}
 .treat-promo .btn{margin-top:8px}
 @media (max-width:760px){.treat-promo{grid-template-columns:1fr;gap:20px;padding:20px;border-radius:24px}}
 .cards.treat-grid{align-items:start}
+.cflag.treat{background:var(--peach);color:var(--markup)}.art-treat{background:var(--peach)}
 /* Text wordmark while trading as Riversdale Kitchen */
 .wm{display:inline-block;font-family:var(--display);font-weight:900;font-size:26px;line-height:1;letter-spacing:-.03em;white-space:nowrap}
 .foot-in .wm{font-size:21px}
