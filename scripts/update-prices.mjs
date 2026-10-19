@@ -70,7 +70,10 @@ function normalise(o) {
 
 // ---------- Matching (same rules as admin/prices.html) ----------
 const STOP = new Set(['and', 'the', 'with', 'fresh', 'pack', 'tin', 'jar', 'each', 'bunch', 'free', 'range', 'approx', 'australian', 'coles', 'woolworths', 'aldi', 'rspca', 'approved', 'star', 'half', 'boneless', 'skin', 'fillets', 'rind', 'bought', 'week']);
-const WRONG = ['marinated', 'sausage', 'burger patt', 'meatball', 'slow cooked', 'cooked', 'bbq', 'schnitzel', 'stir fry', 'knuckle', 'kangaroo', 'kebab', 'crumbed', 'kiev', 'nugget', 'smoked', 'seasoned', 'portion', 'flavoured', 'dog food', 'cat food', 'ready meal', 'soup', 'snack', 'bulk', 'organic', 'plant based', 'vegan'];
+const WRONG = ['marinated', 'sausage', 'burger patt', 'meatball', 'slow cooked', 'cooked', 'bbq', 'schnitzel', 'stir fry', 'knuckle', 'kangaroo', 'kebab', 'crumbed', 'kiev', 'nugget', 'smoked', 'seasoned', 'portion', 'flavoured', 'dog food', 'cat food', 'ready meal', 'soup', 'snack', 'bulk', 'organic', 'plant based', 'vegan',
+  // caught on the first live run: wrong products that share a word with the ingredient
+  'pork & beef', 'lamb and beef', 'kofta', 'char siu', 'mints', 'tic tac', 'chewy', 'holder', 'recipe base', 'gravy', 'batter',
+  'pasta sauce', 'canned', 'frozen', 'microwave', 'pouch', 'strips', 'juice', 'infused', 'minced', 'seasoning paste'];
 const words = s => s.toLowerCase().replace(/\([^)]*\)/g, ' ').split(/[^a-z]+/).filter(w => w.length > 2 && !STOP.has(w));
 function fit(name, id) {
   const it = ING[id]; const pw = new Set(words(name)); const iw = words(it.n); if (!iw.length) return 0;

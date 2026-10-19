@@ -29,7 +29,7 @@ function price(id,store=S.store){
 function estPrice(id,store){const it=ING[id];if(store==='woolies')return it.p*(0.95+hash(id)*0.11);if(store==='aldi'&&!it.noAldi)return it.p*(0.79+hash(id+'a')*0.09);return it.p}
 const IDX={};
 function priceIndex(store=S.store){if(IDX[store])return IDX[store];let est=0,cur=0;R.forEach(r=>r.i.forEach(([id,q])=>{const pr=price(id,store);est+=q/ING[id].pk*estPrice(id,store);cur+=q/pr.pk*pr.p}));return IDX[store]=Math.min(1.35,Math.max(.8,Math.round(cur/est*100)/100))}
-function autoBudget(){const serves=S.people*(S.lunch?2:1)*S.dinners;const tr=S.treats.reduce((s,id)=>s+batchCost(byId(id)),0);return Math.ceil((70+serves*7.5*priceIndex()+(S.people===1?25:0)+tr)/10)*10}
+function autoBudget(){const serves=S.people*(S.lunch?2:1)*S.dinners;const tr=S.treats.reduce((s,id)=>s+batchCost(byId(id)),0);return Math.ceil((70+serves*8*priceIndex()+(S.people===1?25:0)+tr)/10)*10}
 const STORE_NAME={coles:'Coles',woolies:'Woolies',aldi:'Aldi'};
 const spm=()=>S.people*(S.lunch?2:1);
 const gfShare=()=>S.people?Math.min(S.gf,S.people)/S.people:0;

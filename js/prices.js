@@ -36,18 +36,6 @@ window.DOCKET_PRICES = {
       ],
       "sp": 1
     },
-    "beef_mince": {
-      "p": 6.25,
-      "pk": 500,
-      "name": "Coles Pork & Beef 3 Star Regular Mince Bolognese 500g",
-      "at": "2026-10-19"
-    },
-    "beef_lean": {
-      "p": 6.25,
-      "pk": 500,
-      "name": "Coles Pork & Beef 3 Star Regular Mince Bolognese 500g",
-      "at": "2026-10-19"
-    },
     "beef_rump": {
       "p": 25.2,
       "pk": 1050,
@@ -67,20 +55,6 @@ window.DOCKET_PRICES = {
       "at": "2026-10-19",
       "sp": 1,
       "was": 20
-    },
-    "pork_shoulder": {
-      "p": 13,
-      "pk": 1000,
-      "name": "Coles Char Siu Pork Shoulder approx. 1Kg",
-      "at": "2026-10-19",
-      "sp": 1,
-      "was": 15
-    },
-    "pork_roast": {
-      "p": 14.5,
-      "pk": 1000,
-      "name": "Coles Boneless Mini Pork Leg Roast approx. 1kg",
-      "at": "2026-10-19"
     },
     "pork_mince": {
       "p": 9.5,
@@ -279,12 +253,6 @@ window.DOCKET_PRICES = {
       "name": "Coles Onions Red Local approx. 200g",
       "at": "2026-10-19"
     },
-    "garlic": {
-      "p": 1.25,
-      "pk": 1,
-      "name": "Coles Minced Garlic 250g",
-      "at": "2026-10-19"
-    },
     "ginger": {
       "p": 4,
       "pk": 160,
@@ -389,14 +357,6 @@ window.DOCKET_PRICES = {
       "at": "2026-10-19",
       "sp": 1
     },
-    "mint": {
-      "p": 3,
-      "pk": 1,
-      "name": "Tic Tac Two Raspberry & Lemon Sugar Free Mints 38.5g",
-      "at": "2026-10-19",
-      "sp": 1,
-      "was": 3.75
-    },
     "thaibasil": {
       "p": 3.3,
       "pk": 1,
@@ -421,23 +381,6 @@ window.DOCKET_PRICES = {
       "name": "Coles Purple Eggplant approx. 500g",
       "at": "2026-10-19",
       "sp": 1
-    },
-    "greenbeans": {
-      "p": 5.2,
-      "pk": 825,
-      "name": "Birds Eye Frozen Green Beans 825g",
-      "at": "2026-10-19"
-    },
-    "lamb_mince": {
-      "p": 11,
-      "pk": 750,
-      "name": "El- Amin's Halal Kofta Lamb And Beef Mince 750g",
-      "at": "2026-10-19",
-      "alt": [
-        500,
-        8,
-        "Coles 3 Star Lamb Mince 500g"
-      ]
     },
     "pork_belly": {
       "p": 23.4,
@@ -548,12 +491,6 @@ window.DOCKET_PRICES = {
         "Pacific West Air Crisp Barramundi Crispy Tempura Batter 250g"
       ]
     },
-    "wagyu": {
-      "p": 6.25,
-      "pk": 500,
-      "name": "Coles Pork & Beef 3 Star Regular Mince Bolognese 500g",
-      "at": "2026-10-19"
-    },
     "prosciutto": {
       "p": 8,
       "pk": 150,
@@ -615,14 +552,6 @@ window.DOCKET_PRICES = {
         "Coles Baby Capers 110g"
       ]
     },
-    "quinoa": {
-      "p": 2.8,
-      "pk": 250,
-      "name": "Sunrice Microwave Brown Rice & Quinoa Rice Cup 2x125g 250g",
-      "at": "2026-10-19",
-      "sp": 1,
-      "was": 3.5
-    },
     "brownrice": {
       "p": 2.5,
       "pk": 1000,
@@ -664,14 +593,6 @@ window.DOCKET_PRICES = {
         3,
         "MasterFoods Slow Cooker Garlic & Herb Lamb Shanks Recipe Base 175g"
       ]
-    },
-    "duck": {
-      "p": 14.5,
-      "pk": 380,
-      "name": "Luv A Duck Smoke Infused Duck Breast 380g",
-      "at": "2026-10-19",
-      "sp": 1,
-      "was": 16.5
     },
     "rocket": {
       "p": 3.3,
@@ -770,14 +691,6 @@ window.DOCKET_PRICES = {
       "pk": 420,
       "name": "Coles Simply Corn Kernels 420g",
       "at": "2026-10-19"
-    },
-    "sundried": {
-      "p": 5,
-      "pk": 425,
-      "name": "Latina Fresh Creamy Sun-dried Tomato Pasta Sauce 425g",
-      "at": "2026-10-19",
-      "sp": 1,
-      "was": 7.5
     },
     "greencurry": {
       "p": 3,
@@ -892,13 +805,6 @@ window.DOCKET_PRICES = {
       "name": "Latina Fresh Gluten Free Lasagne Sheets 280g",
       "at": "2026-10-19"
     },
-    "corn_tortillas": {
-      "p": 4,
-      "pk": 12,
-      "name": "Mission Original White Corn Tortilla Strips 230g",
-      "at": "2026-10-19",
-      "sp": 1
-    },
     "tamari": {
       "p": 4.5,
       "pk": 280,
@@ -1009,12 +915,6 @@ window.DOCKET_PRICES = {
         2.5,
         "CSR Brown Sugar 500g"
       ]
-    },
-    "gochujang": {
-      "p": 3.2,
-      "pk": 170,
-      "name": "Ottogi Gochujang Hot Pepper Paste 170g",
-      "at": "2026-10-19"
     },
     "mayo": {
       "p": 2.8,
@@ -1199,6 +1099,12 @@ window.DOCKET_PRICES = {
       "pk": 1,
       "name": "Coles Bananas approx. 170g",
       "at": "2026-10-19"
+    },
+    "gochujang": {
+      "p": 3.2,
+      "pk": 170,
+      "name": "Ottogi Gochujang Hot Pepper Paste 170g",
+      "at": "2026-10-19"
     }
   },
   "woolies": {
@@ -1219,19 +1125,6 @@ window.DOCKET_PRICES = {
       "p": 9,
       "pk": 250,
       "name": "Woolworths Beef Rump Steak 250g",
-      "at": "2026-10-19"
-    },
-    "pork_mince": {
-      "p": 6.25,
-      "pk": 500,
-      "name": "Woolworths Pork & Beef Mince 500g",
-      "at": "2026-10-19",
-      "sp": 1
-    },
-    "salmon": {
-      "p": 8.5,
-      "pk": 250,
-      "name": "Woolworths Frozen Salmon Fillets Skin On 250g",
       "at": "2026-10-19"
     },
     "chorizo": {
@@ -1398,23 +1291,10 @@ window.DOCKET_PRICES = {
       "name": "Garlic Head each",
       "at": "2026-10-19"
     },
-    "ginger": {
-      "p": 4.2,
-      "pk": 80,
-      "name": "Gourmet Garden Paste Ginger 80g",
-      "at": "2026-10-19",
-      "sp": 1
-    },
     "carrot": {
       "p": 2.5,
       "pk": 1000,
       "name": "Woolworths Australian Grown Carrots 1kg",
-      "at": "2026-10-19"
-    },
-    "broccoli": {
-      "p": 2.8,
-      "pk": 500,
-      "name": "Bell Farms Frozen Broccoli Florets 500g",
       "at": "2026-10-19"
     },
     "capsicum": {
@@ -1428,14 +1308,6 @@ window.DOCKET_PRICES = {
       "pk": 500,
       "name": "Zucchini Green Punnet 500g",
       "at": "2026-10-19"
-    },
-    "cherrytom": {
-      "p": 2.15,
-      "pk": 400,
-      "name": "Mutti Whole Cherry Tomatoes 400g",
-      "at": "2026-10-19",
-      "sp": 1,
-      "was": 2.7
     },
     "spinach": {
       "p": 5,
@@ -1479,12 +1351,6 @@ window.DOCKET_PRICES = {
       "name": "Lemon Loose each",
       "at": "2026-10-19"
     },
-    "lime": {
-      "p": 1.05,
-      "pk": 1,
-      "name": "Woolworths Citrus Juice Lime Bottle 250mL",
-      "at": "2026-10-19"
-    },
     "springonion": {
       "p": 3,
       "pk": 1,
@@ -1495,20 +1361,6 @@ window.DOCKET_PRICES = {
       "p": 3.3,
       "pk": 1,
       "name": "Woolworths Fresh Herb Coriander Bunch each",
-      "at": "2026-10-19"
-    },
-    "mint": {
-      "p": 1.6,
-      "pk": 1,
-      "name": "Eclipse Spearmint Chewy Mints Tin 27g",
-      "at": "2026-10-19",
-      "sp": 1,
-      "was": 2
-    },
-    "thaibasil": {
-      "p": 2,
-      "pk": 1,
-      "name": "Lobo Thai Basil Seasoning Paste (Pad Ka Prao) - 50g",
       "at": "2026-10-19"
     },
     "mushroom": {
@@ -1545,17 +1397,6 @@ window.DOCKET_PRICES = {
       "pk": 350,
       "name": "Woolworths Pork Belly Thinly Sliced 350g",
       "at": "2026-10-19"
-    },
-    "beansprouts": {
-      "p": 2.7,
-      "pk": 410,
-      "name": "UFC Canned Bean Sprouts 410g",
-      "at": "2026-10-19",
-      "alt": [
-        250,
-        2.6,
-        "Aussie Sprouts Bean 250g"
-      ]
     },
     "massaman": {
       "p": 3.4,
@@ -1594,18 +1435,6 @@ window.DOCKET_PRICES = {
       "name": "Woolworths Beef Scotch Fillet Steak 170g",
       "at": "2026-10-19"
     },
-    "lambcutlets": {
-      "p": 7.9,
-      "pk": 320,
-      "name": "McCain Lamb Cutlet & Gravy Frozen 320g",
-      "at": "2026-10-19"
-    },
-    "barra": {
-      "p": 12,
-      "pk": 250,
-      "name": "Birds Eye Deli Barramundi Fillets Light Batter 250g",
-      "at": "2026-10-19"
-    },
     "prosciutto": {
       "p": 6.6,
       "pk": 100,
@@ -1627,12 +1456,6 @@ window.DOCKET_PRICES = {
       "p": 2.2,
       "pk": 1,
       "name": "Woolworths Iceberg Shredded Lettuce 200g",
-      "at": "2026-10-19"
-    },
-    "corncob": {
-      "p": 2.99,
-      "pk": 1,
-      "name": "Corn Cob Holder 10 Pack",
       "at": "2026-10-19"
     },
     "rosemary": {
@@ -1669,12 +1492,6 @@ window.DOCKET_PRICES = {
       "sp": 1,
       "was": 4
     },
-    "quinoa": {
-      "p": 2.15,
-      "pk": 250,
-      "name": "Macro Brown Rice Quinoa Chia & Garlic Pouch 250g",
-      "at": "2026-10-19"
-    },
     "brownrice": {
       "p": 2.5,
       "pk": 1000,
@@ -1686,13 +1503,6 @@ window.DOCKET_PRICES = {
       "pk": 400,
       "name": "Hikari Japanese Paste White Miso 400g",
       "at": "2026-10-19"
-    },
-    "lamb_shanks": {
-      "p": 3,
-      "pk": 175,
-      "name": "MasterFoods Garlic & Herb Lamb Shanks Slow Cook Recipe Base 175g",
-      "at": "2026-10-19",
-      "sp": 1
     },
     "duck": {
       "p": 15.5,
@@ -1754,12 +1564,6 @@ window.DOCKET_PRICES = {
       "p": 1.8,
       "pk": 400,
       "name": "Ardmona Crushed Vine Ripened Tomatoes 400g",
-      "at": "2026-10-19"
-    },
-    "passata": {
-      "p": 1.95,
-      "pk": 680,
-      "name": "La Gina Italian Tomato Paste Passata 680g",
       "at": "2026-10-19"
     },
     "tompaste": {
@@ -2192,6 +1996,12 @@ window.DOCKET_PRICES = {
       "p": 0.81,
       "pk": 1,
       "name": "Cavendish Bananas each",
+      "at": "2026-10-19"
+    },
+    "passata": {
+      "p": 1.95,
+      "pk": 680,
+      "name": "La Gina Italian Tomato Paste Passata 680g",
       "at": "2026-10-19"
     }
   },
