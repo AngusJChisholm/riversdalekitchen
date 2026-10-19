@@ -214,14 +214,14 @@ function renderCards(){
 }
 function renderWeek(w){
   $('#store-name').textContent=STORE_NAME[S.store];
-  $('#total').textContent=money(w.total,0);
+  $('#total').textContent=money(w.total);$('#r-shop').textContent=money(w.total-(S.sel.length||S.treats.length?STAPLES:0));$('#r-stap').textContent=money(S.sel.length||S.treats.length?STAPLES:0);
   $('#serves-line').textContent=`${w.serves} serves${S.treats.length?` + ${S.treats.length} treat${S.treats.length>1?'s':''}`:''}`;
   const pct=S.budget>0?w.total/S.budget:0;
   $('#meter').classList.toggle('over',pct>1);$('#meter i').style.width=Math.min(100,pct*100)+'%';
   const diff=S.budget-w.total;
   $('#budget-line').innerHTML=diff>=0?`<b>${money(diff,0)}</b> under your ${money(S.budget,0)} budget`:`<b class="over">${money(-diff,0)} over</b> your ${money(S.budget,0)} budget`;
   $('#st-serve').textContent=w.serves?money(w.eaten/w.serves):'$0';
-  const carry=w.total-w.eaten;$('#carry').innerHTML=S.sel.length&&carry>2?`Food you'll eat this week: <b>${money(w.eaten,0)}</b>. The other ${money(carry,0)} stays in the fridge and pantry for next week.`:'';
+  const carry=w.total-w.eaten;$('#carry').innerHTML=S.sel.length&&carry>2?`You'll eat ${money(w.eaten,0)} of it this week. The other ${money(carry,0)} stays in the fridge and pantry.`:'';
   $('#st-prot').textContent=Math.round(w.prot)+'g';
   $('#st-picked').textContent=`${S.sel.length}/${S.dinners}`;
   {const sb=$('#sbar');if(sb){const hfv=KITS[0]?kitCost(KITS[0],spm(),S.sel.length):0;const dd=hfv-w.eaten;
@@ -240,13 +240,13 @@ function renderWeek(w){
   else{
     const s=hf.v-w.eaten;
     const cheaper=rows.filter(r=>r.v<w.eaten);
-    $('#dodged').innerHTML=s>0?`<div class="dodged"><span>KIT TAX DODGED</span><b class="num">${money(s)}</b></div>`:`<div class="dodged"><span>${esc(hf.n)} is cheaper</span><b class="num">${money(-s)}</b></div>`;
-    let txt=s>0?`vs ${esc(hf.n)}. That's ${money(s*52,0)} a year.`:'';
-    if(cheaper.length)txt+=` ${cheaper.map(c=>esc(c.n)).join(' and ')} ${cheaper.length>1?'are':'is'} cheaper on price alone, but not once protein is matched.`;
+    $('#dodged').innerHTML=s>0?`<div class="dodged stamp"><span>YOU DODGED</span><b class="num">${money(s)}</b></div>`:`<div class="dodged"><span>${esc(hf.n)} is cheaper</span><b class="num">${money(-s)}</b></div>`;
+    let txt=s>0?`That's ${money(s*52,0)} a year vs ${esc(hf.n)}.`:'';
+    if(cheaper.length)txt+=` ${cheaper.map(c=>esc(c.n)).join(' and ')} ${cheaper.length>1?'are':'is'} cheaper on price alone, not once protein is matched.`;
     $('#kt-save').innerHTML=txt.trim();
     const pr=KITS.filter(k=>k.prot&&!k.ready).map(k=>({k,v:kitProtCost(k,n,S.sel.length,w.prot)}));
     const hm=pr[0],lo=pr.reduce((a,b)=>b.v<a.v?b:a),kept=hm.v-w.eaten;
-    $('#kt-prot').innerHTML=kept>0?`<div class="dodged pm"><span>SAME PROTEIN</span><b class="num">${money(kept)}</b></div><p class="kt-save num">Your picks average ${Math.round(w.prot)}g protein a serve vs ${esc(hm.k.n)}'s ${hm.k.prot}g. Matched, you keep ${money(kept*52,0)} a year.</p>`:'';
+    $('#kt-prot').innerHTML=kept>0?`<div class="rl pmline"><span>Matched for protein, you keep <small>(${Math.round(w.prot)}g vs ${hm.k.prot}g a serve)</small></span><b class="num">${money(kept)}</b></div>`:'';
   }
 }
 function renderKitCfg(){
@@ -257,15 +257,19 @@ function renderList(w){
   const by={};w.items.forEach(x=>{(by[ING[x.id].a]??=[]).push(x)});
   const order=['M','F','D','Z','P','B','G','K'];
   if(!w.items.length){$('#aisles').innerHTML='<p class="hint">Pick a dinner and your list builds itself here, merged and sorted by aisle.</p>';$('#list-meta').textContent='';return}
-  $('#aisles').innerHTML=order.filter(a=>by[a]).map(a=>`<div class="aisle${a==='K'?' aisle-k':''}">${a==='K'?`<details><summary><h3>Pantry check</h3><small>${by[a].length} things you probably have. Tap to check.</small></summary>`:`<h3>${AISLE[a]}</h3>`}${by[a].sort((x,y)=>ING[x.id].n.localeCompare(ING[y.id].n)).map(x=>{
+  $('#aisles').innerHTML=order.filter(a=>by[a]).map(a=>`<div class="aisle${a==='K'?' aisle-k':''}">${a==='K'?`<details><summary><h3>Pantry check</h3><small>${by[a].length} things you probably have. Tap to check.</small></summary>`:`<h3>${AISLE[a]} <span class="cnt">${by[a].length}</span></h3>`}${by[a].sort((x,y)=>(!!S.done[x.id]-!!S.done[y.id])||ING[x.id].n.localeCompare(ING[y.id].n)).map(x=>{
     const it=ING[x.id];const k='i-'+x.id;const done=!!S.done[x.id];
-    const detail=x.pan?`using ${kAmt(x.id,x.amt)} · ${packLabel(x.id,x.pk)} ${money(x.pack)} if you're out`:`${fmtAmt(x.id,x.amt)} needed · ${x.label}${x.left>0&&ING[x.id].u!=='ea'&&x.left/x.bought>.15?` · <span class="left">${fmtAmt(x.id,x.left)} left over</span>`:''}`;
-    return`<label class="item${done?' done':''}" for="${k}"><input type="checkbox" id="${k}" data-id="${x.id}" ${done?'checked':''}><span class="what">${esc(it.n)}<small>${detail}${x.fb?' · <span class="flag">Not at Aldi, priced at Coles</span>':''}${it.ck?' · check label for GF':''}${x.sp?' · <span class="ok">on special</span>':''}</small></span><span class="c num">${x.pan?'≈':''}${money(x.cost)}</span></label>`}).join('')}${a==='K'?'</details>':''}</div>`).join('');
+    const spare=x.left>0&&it.u!=='ea'&&x.bought&&x.left/x.bought>.15?`${fmtAmt(x.id,x.left)} spare`:'';
+    const bits=x.pan?[`Using ${kAmt(x.id,x.amt)}`,`if you're out, ${packLabel(x.id,x.pk)} ${money(x.pack)}`]:[`Buy ${x.label}`,`need ${fmtAmt(x.id,x.amt)}`,spare];
+    if(it.ck)bits.push('check the GF label');
+    return`<label class="item${done?' done':''}" for="${k}"><input type="checkbox" id="${k}" data-id="${x.id}" ${done?'checked':''}><span class="what"><span class="nm">${esc(it.n)}${x.sp?'<span class="tag sp">Special</span>':''}</span><small>${bits.filter(Boolean).join(' · ')}${x.fb?' · <span class="flag">Not at Aldi, priced at Coles</span>':''}</small></span><span class="c num">${x.pan?'≈':''}${money(x.cost)}</span></label>`}).join('')}${a==='K'?'</details>':''}</div>`).join('');
   $('#list-meta').textContent=`${w.items.length} items · ${money(w.shop)} + ${money(STAPLES,0)} staples`;
+  trolley();
   const buyable=w.items.filter(x=>!x.pan);const checked=buyable.filter(x=>x.real).length;
   const upd=PRICES.updated?new Date(PRICES.updated+'T12:00').toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short'}):'';const sp=buyable.filter(x=>x.sp).length;
-  $('#price-note').textContent=checked?`${checked===buyable.length?'Every price':`${checked} of ${buyable.length} prices`} on this list ${checked===1?'is':'are'} ${STORE_NAME[S.store]}'s shelf price${upd?`, updated ${upd}`:' this week'}.${sp?` ${sp} on special.`:''}${checked<buyable.length?' The rest are Riversdale Kitchen estimates.':''}`:`Prices are Riversdale Kitchen's estimates for ${STORE_NAME[S.store]}, so expect the shelf to be within a few dollars either way.`;
+  $('#price-note').textContent=checked?`${STORE_NAME[S.store]} shelf prices for ${checked===buyable.length?'every item':`${checked} of ${buyable.length} items`}${upd?`, updated ${upd}`:''}.${sp?` ${sp} item${sp>1?'s':''} on special.`:''}${checked<buyable.length?' The rest are our estimates.':''}`:'Prices are our estimates for now.';
 }
+function trolley(){const all=[...document.querySelectorAll('#aisles .item:not(.aisle-k .item) input')];const n=all.filter(i=>i.checked).length;const el=$('#trolley');if(!el)return;el.hidden=!all.length;$('#trolley-n').textContent=`${n} of ${all.length} in the trolley`;$('#trolley i').style.width=(all.length?n/all.length*100:0)+'%'}
 function useItUp(w){
   const left={};w.items.forEach(x=>{if(!x.pan&&x.left>0&&x.bought)left[x.id]=x.left});
   if(!Object.keys(left).length||!S.sel.length)return null;
@@ -280,6 +284,7 @@ function useItUp(w){
 function renderUse(w){
   const b=useItUp(w);const el=$('#useitup');if(!b){el.hidden=true;return}
   const room=S.sel.length<S.dinners;
+  if(!room){el.hidden=true;return}
   el.hidden=false;el.innerHTML=`<span class="eyebrow">Use it up</span><p><b>${esc(b.r.n)}</b> uses up your leftover ${esc(b.used.slice(0,3).join(', '))}, about ${money(b.save,0)} of food you've already bought.</p>${room?`<button class="btn" data-id="${b.r.id}" id="use-add">Add it</button>`:`<p class="hint">Your week's full. Swap a dinner out to fit it in.</p>`}`;
   const btn=$('#use-add');if(btn)btn.onclick=()=>{if(S.sel.length<S.dinners){S.sel.push(btn.dataset.id);render()}};
 }
@@ -353,7 +358,7 @@ $('#fill').onclick=()=>{
   render();
 };
 $('#clear').onclick=()=>{if(S.col==='treats')S.treats=[];else S.sel=[];render()};
-$('#aisles').addEventListener('change',e=>{const id=e.target.dataset.id;if(!id)return;S.done[id]=e.target.checked;e.target.closest('.item').classList.toggle('done',e.target.checked);save()});
+$('#aisles').addEventListener('change',e=>{const id=e.target.dataset.id;if(!id)return;S.done[id]=e.target.checked;e.target.closest('.item').classList.toggle('done',e.target.checked);trolley();save()});
 function copyText(t,okMsg){
   const done=()=>{$('#msg').textContent=okMsg};
   try{navigator.clipboard.writeText(t).then(done,()=>fallback(t))}catch(e){fallback(t)}
