@@ -436,13 +436,16 @@ const T=[
 const KITS=[
  {n:'HelloFresh',del:9.99,t:{2:{2:14.99,3:12.99,4:12.29,5:11.69,6:11.29},3:{2:14.19,3:11.99,4:11.49,5:10.59,6:9.99},4:{2:13.59,3:11.29,4:10.39,5:9.59,6:8.99},5:{2:12.99,3:10.99,4:10.29,5:9.49,6:8.89},6:{2:12.49,3:10.49,4:9.69,5:8.89,6:8.59}},
   src:'hellofresh.com.au/meal-kits/meal-plans (checked 14 Oct 2026); delivery $9.99 per deliveryrank.com Apr 2026 (Tom\'s Guide reports $11.99)',
-  prot:42.5,protSrc:'median protein per serve across 18 HelloFresh recipes, from the nutrition panels on hellofresh.com.au (checked 19 Oct 2026, list in data/kit-protein.json)'},
+  prot:42.6,protSrc:'median of 18 recipes, hellofresh.com.au nutrition panels, checked 19 Oct 2026'},
  {n:'Marley Spoon',del:11.99,t:{2:{2:13.99,3:12.99,4:11.99,5:11.49,6:10.99},4:{2:11.99,3:10.99,4:9.99,5:8.99,6:7.99}},
-  src:'deliveryrank.com Marley Spoon AU review (Dec 2025); delivery $11.99 per Marley Spoon help centre'},
+  src:'deliveryrank.com Marley Spoon AU review (Dec 2025); delivery $11.99 per Marley Spoon help centre',
+  prot:43.3,protSrc:'median of the first 15 meat and fish dinners on the 19 Oct 2026 menu, marleyspoon.com.au nutrition panels'},
  {n:'Dinnerly',del:11.99,t:{2:{2:9.85,3:8.49,4:7.99,5:7.49,6:7.28},4:{2:7.79,3:6.99,4:6.69,5:6.49,6:5.49}},
-  src:'deliveryrank.com Dinnerly AU review (Nov 2025); delivery $11.99 per Dinnerly help centre'},
+  src:'deliveryrank.com Dinnerly AU review (Nov 2025); delivery $11.99 per Dinnerly help centre',
+  prot:39.9,protSrc:'median of the first 15 meat and fish dinners on the 19 Oct 2026 menu, dinnerly.com.au nutrition panels'},
  {n:'EveryPlate',del:9.99,t:{2:{3:10.33,4:9.37,5:8.50,6:7.92},4:{3:7.50,4:6.87,5:6.50,6:6.04},6:{3:6.67,4:6.04,5:5.67,6:5.00}},
-  src:'deliveryrank.com EveryPlate AU review (Apr 2026), metro delivery'},
+  src:'deliveryrank.com EveryPlate AU review (Apr 2026), metro delivery',
+  prot:40.6,protSrc:'median of 15 meat dinners from everyplate.com.au recipe pages, nutrition panels checked 19 Oct 2026'},
  {n:'My Muscle Chef',ready:1,ps:10.95,del:0,src:'standard main meal price, weightloss.com.au (checked Aug 2026); delivery not counted'},
  {n:'Youfoodz',ready:1,ps:10.99,del:0,src:'standard meal price, foodboxmate.com (Jan 2026); delivery not counted'}
 ];

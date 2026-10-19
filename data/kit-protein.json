@@ -1,29 +1,352 @@
 {
-  "note": "Protein per serving from each meal kit's own published nutrition panel. Median used on the site (less favourable to Riversdale Kitchen than the mean). Base recipes only: no Double protein, Premium or Market add-ons.",
-  "checked": "2026-10-19",
-  "kits": {
-    "HelloFresh": {
-      "median": 42.5, "mean": 41.3, "n": 18,
-      "recipes": [
-        ["Chicken & Creamy Peppercorn Sauce", 39.7, "https://www.hellofresh.com.au/recipes/chicken-creamy-peppercorn-sauce-604ed3d2eda8d46ad32da478"],
-        ["Korean-Style Beef Bibimbap", 47.6, "https://www.hellofresh.com.au/recipes/korean-style-beef-bibimbap-640ea545b3c45de1fd086d85"],
-        ["Aussie-Spiced Chicken Schnitzel", 46.7, "https://www.hellofresh.com.au/recipes/aussie-spiced-chicken-schnitzel-61e751f85b253c042c497bdb"],
-        ["Beef Brisket Loaded Fries", 14.3, "https://www.hellofresh.com.au/recipes/southern-beef-brisket-loaded-fries-65adc605553f74890680db5d"],
-        ["Roast Pork Belly Bao Buns & Hoisin Sauce", 43.2, "https://www.hellofresh.com.au/recipes/roast-pork-belly-bao-buns-and-hoisin-sauce-67f841774264524ca978f903"],
-        ["Rustic Beef Spaghetti Bolognese", 53.8, "https://www.hellofresh.com.au/recipes/rustic-beef-spaghetti-bolognese-6874d6c8c30d33981f9979f4"],
-        ["Quick Vietnamese Coconut & Lemongrass Chicken", 46.2, "https://www.hellofresh.com.au/recipes/quick-vietnamese-coconut-and-lemongrass-chicken-67f8581f0d0527cba53b0893"],
-        ["Sticky Spiced Chicken & Crushed Potatoes", 42.1, "https://www.hellofresh.com.au/recipes/sticky-spiced-chicken-and-crushed-potatoes-67f8414a0d0527cba53a91c4"],
-        ["Seared Salmon & Blistered Cherry Tomatoes", 43.7, "https://www.hellofresh.com.au/recipes/speedy-legumes-seared-salmon-and-blistered-cherry-tomatoes-with-cannelini-beans-and-garlic-yoghurt-68ed7a64a267a9c2fbff9da8"],
-        ["Garlicky Chicken & Potato Wedges", 18.8, "https://www.hellofresh.com.au/recipes/garlicky-chicken-and-smokey-aioli-67b2b009a27a53fcaa21ea4a"],
-        ["Easy Chorizo & Veggie Traybake", 38.6, "https://www.hellofresh.com.au/recipes/easy-chorizo-and-veggie-traybake-63a4f1a7d94aff443908c14b"],
-        ["Seared Beef Rump & Parmesan Sauce", 42.5, "https://www.hellofresh.com.au/recipes/seared-beef-rump-and-parmesan-sauce-6563f3e7c79d741428512c0f"],
-        ["Beef Ragu Tortellini", 47.2, "https://www.hellofresh.com.au/recipes/beef-ragu-tortellini-67f85f384264524ca97994d6"],
-        ["Beef & Walnut Meatloaves", 36.8, "https://www.hellofresh.com.au/recipes/beef-and-walnut-meatloaves-67f8607c4264524ca9799d00"],
-        ["American-Spiced Prawns & Garlic Rice", 23.5, "https://www.hellofresh.com.au/recipes/american-spiced-prawns-and-garlic-rice-6181dc6f00dea46eb12116b9"],
-        ["Seared Chicken & Veggie Fries", 40.5, "https://www.hellofresh.com.au/recipes/seared-chicken-and-veggie-fries-67f8672a4264524ca979c8f7"],
-        ["Gochujang Lamb & Prawn Bibimbap Bowl", 74.8, "https://www.hellofresh.com.au/recipes/gochujang-lamb-and-prawn-bibimbap-bowl-68d09124344d2237db7974ee"],
-        ["Garlic & Herb Chicken", 42.6, "https://www.hellofresh.com.au/recipes/garlic-and-herb-chicken-5efbfc55a957e1699d6fee2b"]
-      ]
-    }
+ "note": "Protein per serving from each meal kit's own published nutrition panel. Medians used on the site. Meat and fish dinners only (veg dinners would pull kit averages down, so leaving them out is the conservative choice). Base recipes only: no Double protein or Premium versions.",
+ "checked": "2026-10-19",
+ "kits": {
+  "HelloFresh": {
+   "median": 42.6,
+   "mean": 41.3,
+   "n": 18,
+   "recipes": [
+    [
+     "Chicken & Creamy Peppercorn Sauce",
+     39.7,
+     "https://www.hellofresh.com.au/recipes/chicken-creamy-peppercorn-sauce-604ed3d2eda8d46ad32da478"
+    ],
+    [
+     "Korean-Style Beef Bibimbap",
+     47.6,
+     "https://www.hellofresh.com.au/recipes/korean-style-beef-bibimbap-640ea545b3c45de1fd086d85"
+    ],
+    [
+     "Aussie-Spiced Chicken Schnitzel",
+     46.7,
+     "https://www.hellofresh.com.au/recipes/aussie-spiced-chicken-schnitzel-61e751f85b253c042c497bdb"
+    ],
+    [
+     "Beef Brisket Loaded Fries",
+     14.3,
+     "https://www.hellofresh.com.au/recipes/southern-beef-brisket-loaded-fries-65adc605553f74890680db5d"
+    ],
+    [
+     "Roast Pork Belly Bao Buns & Hoisin Sauce",
+     43.2,
+     "https://www.hellofresh.com.au/recipes/roast-pork-belly-bao-buns-and-hoisin-sauce-67f841774264524ca978f903"
+    ],
+    [
+     "Rustic Beef Spaghetti Bolognese",
+     53.8,
+     "https://www.hellofresh.com.au/recipes/rustic-beef-spaghetti-bolognese-6874d6c8c30d33981f9979f4"
+    ],
+    [
+     "Quick Vietnamese Coconut & Lemongrass Chicken",
+     46.2,
+     "https://www.hellofresh.com.au/recipes/quick-vietnamese-coconut-and-lemongrass-chicken-67f8581f0d0527cba53b0893"
+    ],
+    [
+     "Sticky Spiced Chicken & Crushed Potatoes",
+     42.1,
+     "https://www.hellofresh.com.au/recipes/sticky-spiced-chicken-and-crushed-potatoes-67f8414a0d0527cba53a91c4"
+    ],
+    [
+     "Seared Salmon & Blistered Cherry Tomatoes",
+     43.7,
+     "https://www.hellofresh.com.au/recipes/speedy-legumes-seared-salmon-and-blistered-cherry-tomatoes-with-cannelini-beans-and-garlic-yoghurt-68ed7a64a267a9c2fbff9da8"
+    ],
+    [
+     "Garlicky Chicken & Potato Wedges",
+     18.8,
+     "https://www.hellofresh.com.au/recipes/garlicky-chicken-and-smokey-aioli-67b2b009a27a53fcaa21ea4a"
+    ],
+    [
+     "Easy Chorizo & Veggie Traybake",
+     38.6,
+     "https://www.hellofresh.com.au/recipes/easy-chorizo-and-veggie-traybake-63a4f1a7d94aff443908c14b"
+    ],
+    [
+     "Seared Beef Rump & Parmesan Sauce",
+     42.5,
+     "https://www.hellofresh.com.au/recipes/seared-beef-rump-and-parmesan-sauce-6563f3e7c79d741428512c0f"
+    ],
+    [
+     "Beef Ragu Tortellini",
+     47.2,
+     "https://www.hellofresh.com.au/recipes/beef-ragu-tortellini-67f85f384264524ca97994d6"
+    ],
+    [
+     "Beef & Walnut Meatloaves",
+     36.8,
+     "https://www.hellofresh.com.au/recipes/beef-and-walnut-meatloaves-67f8607c4264524ca9799d00"
+    ],
+    [
+     "American-Spiced Prawns & Garlic Rice",
+     23.5,
+     "https://www.hellofresh.com.au/recipes/american-spiced-prawns-and-garlic-rice-6181dc6f00dea46eb12116b9"
+    ],
+    [
+     "Seared Chicken & Veggie Fries",
+     40.5,
+     "https://www.hellofresh.com.au/recipes/seared-chicken-and-veggie-fries-67f8672a4264524ca979c8f7"
+    ],
+    [
+     "Gochujang Lamb & Prawn Bibimbap Bowl",
+     74.8,
+     "https://www.hellofresh.com.au/recipes/gochujang-lamb-and-prawn-bibimbap-bowl-68d09124344d2237db7974ee"
+    ],
+    [
+     "Garlic & Herb Chicken",
+     42.6,
+     "https://www.hellofresh.com.au/recipes/garlic-and-herb-chicken-5efbfc55a957e1699d6fee2b"
+    ]
+   ]
+  },
+  "Dinnerly": {
+   "median": 39.9,
+   "mean": 39.2,
+   "n": 15,
+   "sample": "first 15 meat and fish dinners on the menu for the week of 19 Oct 2026, in menu order",
+   "recipes": [
+    [
+     "702508-tonkatsu-chicken-nom-nom-bowls-with-rice-broccoli-and-toasted-sesame-mayo",
+     39.8,
+     "https://dinnerly.com.au/menu/702508-tonkatsu-chicken-nom-nom-bowls-with-rice-broccoli-and-toasted-sesame-mayo"
+    ],
+    [
+     "702648-speedy-vietnamese-twist-beef-wraps-with-lime-and-pickled-carrot",
+     39.9,
+     "https://dinnerly.com.au/menu/702648-speedy-vietnamese-twist-beef-wraps-with-lime-and-pickled-carrot"
+    ],
+    [
+     "702706-pork-burgers-with-special-sauce-and-salt-and-vinegar-wedges",
+     39.4,
+     "https://dinnerly.com.au/menu/702706-pork-burgers-with-special-sauce-and-salt-and-vinegar-wedges"
+    ],
+    [
+     "702811-grilled-lemon-pepper-basa-with-roast-veggies-and-lemon-sauce",
+     29.8,
+     "https://dinnerly.com.au/menu/702811-grilled-lemon-pepper-basa-with-roast-veggies-and-lemon-sauce"
+    ],
+    [
+     "702793-pesto-chicken-risotto-with-oven-roasted-tomato",
+     41.9,
+     "https://dinnerly.com.au/menu/702793-pesto-chicken-risotto-with-oven-roasted-tomato"
+    ],
+    [
+     "702808-speedy-pork-dan-dan-noodles-with-peanut-butter-and-pak-choy",
+     47,
+     "https://dinnerly.com.au/menu/702808-speedy-pork-dan-dan-noodles-with-peanut-butter-and-pak-choy"
+    ],
+    [
+     "702716-calorie-conscious-lamb-party-in-a-bowl-salad-with-potato-and-green-goddess-dressing",
+     36.4,
+     "https://dinnerly.com.au/menu/702716-calorie-conscious-lamb-party-in-a-bowl-salad-with-potato-and-green-goddess-dressing"
+    ],
+    [
+     "702726-speedy-beef-chimichangas-with-corn-and-salad-leaves",
+     42.5,
+     "https://dinnerly.com.au/menu/702726-speedy-beef-chimichangas-with-corn-and-salad-leaves"
+    ],
+    [
+     "702744-no-fuss-butter-chicken-with-sweet-potato-and-basmati-rice",
+     39.5,
+     "https://dinnerly.com.au/menu/702744-no-fuss-butter-chicken-with-sweet-potato-and-basmati-rice"
+    ],
+    [
+     "702660-speedy-chicken-and-slaw-tacos-with-mint",
+     42.3,
+     "https://dinnerly.com.au/menu/702660-speedy-chicken-and-slaw-tacos-with-mint"
+    ],
+    [
+     "702471-javanese-roast-chicken-with-potato-and-pickled-veggies",
+     42,
+     "https://dinnerly.com.au/menu/702471-javanese-roast-chicken-with-potato-and-pickled-veggies"
+    ],
+    [
+     "702470-bbq-smoky-chicken-wings-with-garlic-bread-fries-and-veggie-sticks",
+     15.9,
+     "https://dinnerly.com.au/menu/702470-bbq-smoky-chicken-wings-with-garlic-bread-fries-and-veggie-sticks"
+    ],
+    [
+     "702474-chorizo-and-tomato-pasta-with-feta-and-roasted-baby-broccoli",
+     30.8,
+     "https://dinnerly.com.au/menu/702474-chorizo-and-tomato-pasta-with-feta-and-roasted-baby-broccoli"
+    ],
+    [
+     "702636-no-1-cheesy-chicken-schnitzels-from-our-top-of-the-pops-range",
+     54.3,
+     "https://dinnerly.com.au/menu/702636-no-1-cheesy-chicken-schnitzels-from-our-top-of-the-pops-range"
+    ],
+    [
+     "702625-no-1-sweet-chilli-popcorn-chicken-from-our-top-of-the-pops-range",
+     47.1,
+     "https://dinnerly.com.au/menu/702625-no-1-sweet-chilli-popcorn-chicken-from-our-top-of-the-pops-range"
+    ]
+   ]
+  },
+  "Marley Spoon": {
+   "median": 43.3,
+   "mean": 41.2,
+   "n": 15,
+   "sample": "first 15 meat and fish dinners on the menu for the week of 19 Oct 2026, in menu order",
+   "recipes": [
+    [
+     "681156-miso-glazed-chicken-with-teriyaki-noodle-stir-fry",
+     47.5,
+     "https://marleyspoon.com.au/menu/681156-miso-glazed-chicken-with-teriyaki-noodle-stir-fry"
+    ],
+    [
+     "681022-mirin-ginger-beef-stir-fry-with-greens-and-sesame-seeds",
+     39.5,
+     "https://marleyspoon.com.au/menu/681022-mirin-ginger-beef-stir-fry-with-greens-and-sesame-seeds"
+    ],
+    [
+     "689215-pulled-pork-and-caramelised-apple-rolls-with-root-veg-chips-and-garden-leaves",
+     30.4,
+     "https://marleyspoon.com.au/menu/689215-pulled-pork-and-caramelised-apple-rolls-with-root-veg-chips-and-garden-leaves"
+    ],
+    [
+     "681050-pan-fried-basa-chips-and-aioli-with-garden-salad-and-lemon",
+     30.6,
+     "https://marleyspoon.com.au/menu/681050-pan-fried-basa-chips-and-aioli-with-garden-salad-and-lemon"
+    ],
+    [
+     "681058-easy-chicken-alfredo-pasta-with-spring-veggies",
+     50.1,
+     "https://marleyspoon.com.au/menu/681058-easy-chicken-alfredo-pasta-with-spring-veggies"
+    ],
+    [
+     "681776-japanese-pork-meatballs-with-roasted-broccoli-and-miso-butter",
+     47,
+     "https://marleyspoon.com.au/menu/681776-japanese-pork-meatballs-with-roasted-broccoli-and-miso-butter"
+    ],
+    [
+     "694400-sweet-chilli-basa-fish-with-sweet-potato-and-coconut-broccoli",
+     31.6,
+     "https://marleyspoon.com.au/menu/694400-sweet-chilli-basa-fish-with-sweet-potato-and-coconut-broccoli"
+    ],
+    [
+     "679940-easy-fragrant-chicken-thigh-laksa-with-vermicelli-coriander-and-chilli",
+     43.5,
+     "https://marleyspoon.com.au/menu/679940-easy-fragrant-chicken-thigh-laksa-with-vermicelli-coriander-and-chilli"
+    ],
+    [
+     "681029-dukkah-chicken-schnitzels-and-chips-with-horseradish-slaw",
+     46.1,
+     "https://marleyspoon.com.au/menu/681029-dukkah-chicken-schnitzels-and-chips-with-horseradish-slaw"
+    ],
+    [
+     "679958-crumbed-basa-and-chips-with-tartare-sauce-and-crushed-peas",
+     40.3,
+     "https://marleyspoon.com.au/menu/679958-crumbed-basa-and-chips-with-tartare-sauce-and-crushed-peas"
+    ],
+    [
+     "584936-calorie-conscious-spicy-harissa-chicken-with-middle-eastern-vegetables-and-yoghurt",
+     49.1,
+     "https://marleyspoon.com.au/menu/584936-calorie-conscious-spicy-harissa-chicken-with-middle-eastern-vegetables-and-yoghurt"
+    ],
+    [
+     "650198-smoky-garlic-prawns-with-red-couscous-home-food-by-elizabeth-hewson",
+     29.9,
+     "https://marleyspoon.com.au/menu/650198-smoky-garlic-prawns-with-red-couscous-home-food-by-elizabeth-hewson"
+    ],
+    [
+     "654226-virtuous-chicken-salad-with-sesame-dressing-home-food-by-elizabeth-hewson",
+     40.5,
+     "https://marleyspoon.com.au/menu/654226-virtuous-chicken-salad-with-sesame-dressing-home-food-by-elizabeth-hewson"
+    ],
+    [
+     "681120-classic-beef-cottage-pie-with-parmesan-potato-topping",
+     49,
+     "https://marleyspoon.com.au/menu/681120-classic-beef-cottage-pie-with-parmesan-potato-topping"
+    ],
+    [
+     "694396-lamb-and-eggplant-pasta-with-tomato-and-oregano",
+     43.3,
+     "https://marleyspoon.com.au/menu/694396-lamb-and-eggplant-pasta-with-tomato-and-oregano"
+    ]
+   ]
+  },
+  "EveryPlate": {
+   "median": 40.6,
+   "mean": 37.6,
+   "n": 15,
+   "sample": "first 15 non-double meat dinners listed on everyplate.com.au/recipes/meat-recipes (weekly menu needs a postcode)",
+   "recipes": [
+    [
+     "bbq-beef-sausages-and-grilled-onions-6723658906f5566883435cf1",
+     26.7,
+     "https://www.everyplate.com.au/recipes/bbq-beef-sausages-and-grilled-onions-6723658906f5566883435cf1"
+    ],
+    [
+     "mexican-beef-enchiladas-672364a106f5566883435ce4",
+     42.5,
+     "https://www.everyplate.com.au/recipes/mexican-beef-enchiladas-672364a106f5566883435ce4"
+    ],
+    [
+     "smokey-lentil-and-beef-loaded-nachos-672361b406f5566883435cda",
+     27.6,
+     "https://www.everyplate.com.au/recipes/smokey-lentil-and-beef-loaded-nachos-672361b406f5566883435cda"
+    ],
+    [
+     "beef-rump-and-bacon-roast-veggie-salad-67235fc27b735aa073978eef",
+     51.1,
+     "https://www.everyplate.com.au/recipes/beef-rump-and-bacon-roast-veggie-salad-67235fc27b735aa073978eef"
+    ],
+    [
+     "garlicky-beef-rump-and-creamy-sauce-671a412ac2f9d9459122c737",
+     41.1,
+     "https://www.everyplate.com.au/recipes/garlicky-beef-rump-and-creamy-sauce-671a412ac2f9d9459122c737"
+    ],
+    [
+     "japanese-golden-beef-and-veggie-curry-671a40bdc2f9d9459122c716",
+     40.8,
+     "https://www.everyplate.com.au/recipes/japanese-golden-beef-and-veggie-curry-671a40bdc2f9d9459122c716"
+    ],
+    [
+     "mediterranean-beef-and-chickpea-stew-67121a9696339e2a0bba174c",
+     24.7,
+     "https://www.everyplate.com.au/recipes/mediterranean-beef-and-chickpea-stew-67121a9696339e2a0bba174c"
+    ],
+    [
+     "mumbai-beef-tacos-671219ae5e99f1b696436b19",
+     40.6,
+     "https://www.everyplate.com.au/recipes/mumbai-beef-tacos-671219ae5e99f1b696436b19"
+    ],
+    [
+     "chinese-bbq-beef-and-veggie-fried-rice-6712152996339e2a0bba16d5",
+     45,
+     "https://www.everyplate.com.au/recipes/chinese-bbq-beef-and-veggie-fried-rice-6712152996339e2a0bba16d5"
+    ],
+    [
+     "extra-cheesy-beef-pasta-bake-6712100a5e99f1b696436a83",
+     56.6,
+     "https://www.everyplate.com.au/recipes/extra-cheesy-beef-pasta-bake-6712100a5e99f1b696436a83"
+    ],
+    [
+     "asian-bbq-beef-and-sweet-chilli-noodles-67120f4d96339e2a0bba167f",
+     38.1,
+     "https://www.everyplate.com.au/recipes/asian-bbq-beef-and-sweet-chilli-noodles-67120f4d96339e2a0bba167f"
+    ],
+    [
+     "baked-potato-cheddar-and-beef-hash-66fe5aa699e8e2a18bd73fb4",
+     15,
+     "https://www.everyplate.com.au/recipes/baked-potato-cheddar-and-beef-hash-66fe5aa699e8e2a18bd73fb4"
+    ],
+    [
+     "smokey-lentil-and-chicken-loaded-nachos-672364ee7b735aa073978f71",
+     27.6,
+     "https://www.everyplate.com.au/recipes/smokey-lentil-and-chicken-loaded-nachos-672364ee7b735aa073978f71"
+    ],
+    [
+     "air-fryer-herby-italian-crumbed-chicken-672364b006f5566883435ce5",
+     39.8,
+     "https://www.everyplate.com.au/recipes/air-fryer-herby-italian-crumbed-chicken-672364b006f5566883435ce5"
+    ],
+    [
+     "thai-chicken-stir-fry-672362277b735aa073978f4b",
+     46.3,
+     "https://www.everyplate.com.au/recipes/thai-chicken-stir-fry-672362277b735aa073978f4b"
+    ]
+   ]
   }
+ }
 }

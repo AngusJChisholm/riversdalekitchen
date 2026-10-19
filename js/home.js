@@ -38,17 +38,19 @@
       </div>
       ${saved > 0 ? `<div class="dodged"><span>KIT TAX DODGED</span><b class="num">${money(saved)}</b></div>
       <p class="kt-save num">vs ${esc(hf.n)}. That's ${money(saved * 52, 0)} a year.</p>` : ''}
-      ${protHTML(KITS[0], w.perMeal, w.serves / w.perMeal, AVGP, w.docket)}
-      ${cheaper.length ? `<p class="kt-note">${cheaper.join(' and ')} ${cheaper.length > 1 ? 'are' : 'is'} cheaper on price alone. Riversdale Kitchen dinners average ${AVGP}g protein a serve.</p>` : ''}`;
+      ${protHTML(w.perMeal, w.serves / w.perMeal, AVGP, w.docket)}
+      ${cheaper.length ? `<p class="kt-note">${cheaper.join(' and ')} ${cheaper.length > 1 ? 'are' : 'is'} cheaper on price alone. Matched for protein, ${cheaper.length > 1 ? 'they cost' : 'it costs'} more. See below.</p>` : ''}`;
   }
 
   // Same protein: what the kit would cost to match our protein a serve
-  function protHTML(k, perMeal, dinners, ourProt, ours) {
-    const m = kitProtCost(k, perMeal, dinners, ourProt);
-    if (m == null || ourProt <= k.prot) return '';
-    const kept = m - ours;
-    return `<div class="dodged pm"><span>KIT TAX · SAME PROTEIN</span><b class="num">${money(kept)}</b></div>
-      <p class="kt-save num">${esc(k.n)} averages ${k.prot}g protein a serve. Ours average ${Math.round(ourProt)}g. Getting that much protein from ${esc(k.n)} would cost ${money(m)} a week, so you keep ${money(kept * 52, 0)} a year.</p>`;
+  function protHTML(perMeal, dinners, ourProt, ours) {
+    const rows = KITS.filter(k => k.prot && !k.ready).map(k => ({ k, v: kitProtCost(k, perMeal, dinners, ourProt) }));
+    if (!rows.length || !dinners) return '';
+    const hfm = rows[0], kept = hfm.v - ours, lo = rows.reduce((a, b) => b.v < a.v ? b : a);
+    return `<p class="kt-head" style="margin-top:18px">THE KIT TAX · SAME PROTEIN</p>
+      <div class="lines">${rows.map(r => `<div class="ln kit"><span>${esc(r.k.n)} <small>${r.k.prot}g a serve</small></span><span>${money(r.v)}</span></div>`).join('')}</div>
+      ${kept > 0 ? `<div class="dodged pm"><span>SAME PROTEIN, YOU KEEP</span><b class="num">${money(kept)}</b></div>
+      <p class="kt-save num">Ours average ${Math.round(ourProt)}g protein a serve. To get that much from ${esc(hfm.k.n)} you'd pay ${money(hfm.v)} a week. That's ${money(kept * 52, 0)} a year.${lo.v > ours ? ` Even ${esc(lo.k.n)} costs ${money(lo.v - ours, 0)} more.` : ''}</p>` : ''}`;
   }
 
   // Hero: an example week, set like a menu

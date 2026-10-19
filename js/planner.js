@@ -220,11 +220,12 @@ function renderWeek(w){
     const cheaper=rows.filter(r=>r.v<w.eaten);
     $('#dodged').innerHTML=s>0?`<div class="dodged"><span>KIT TAX DODGED</span><b class="num">${money(s)}</b></div>`:`<div class="dodged"><span>${esc(hf.n)} is cheaper</span><b class="num">${money(-s)}</b></div>`;
     let txt=s>0?`vs ${esc(hf.n)}. That's ${money(s*52,0)} a year.`:'';
-    if(cheaper.length)txt+=` ${cheaper.map(c=>esc(c.n)).join(' and ')} ${cheaper.length>1?'are':'is'} cheaper on price alone this week. Riversdale Kitchen dinners average ${Math.round(w.prot)}g protein a serve.`;
+    if(cheaper.length)txt+=` ${cheaper.map(c=>esc(c.n)).join(' and ')} ${cheaper.length>1?'are':'is'} cheaper on price alone this week. Matched for protein, ${cheaper.length>1?'they cost':'it costs'} more. See below.`;
     else{const lo=rows.reduce((a,b)=>b.v<a.v?b:a);if(lo!==hf&&lo.v>w.eaten)txt+=` Even the cheapest, ${esc(lo.n)}, costs ${money(lo.v-w.eaten,0)} more.`}
     $('#kt-save').innerHTML=txt.trim();
-    const k0=KITS[0],m=kitProtCost(k0,n,S.sel.length,w.prot);
-    $('#kt-prot').innerHTML=m!=null&&w.prot>k0.prot?`<div class="dodged pm"><span>KIT TAX · SAME PROTEIN</span><b class="num">${money(m-w.eaten)}</b></div><p class="kt-save num">${esc(k0.n)} averages ${k0.prot}g protein a serve. Your picks average ${Math.round(w.prot)}g. That much protein from ${esc(k0.n)} would cost ${money(m)}, so you keep ${money((m-w.eaten)*52,0)} a year.</p>`:'';
+    const pr=KITS.filter(k=>k.prot&&!k.ready).map(k=>({k,v:kitProtCost(k,n,S.sel.length,w.prot)}));
+    const hm=pr[0],lo=pr.reduce((a,b)=>b.v<a.v?b:a),kept=hm.v-w.eaten;
+    $('#kt-prot').innerHTML=`<p class="kt-head" style="margin-top:18px">THE KIT TAX · SAME PROTEIN</p><div class="lines">${pr.map(r=>`<div class="ln kit"><span>${esc(r.k.n)} <small>${r.k.prot}g a serve</small></span><span>${money(r.v)}</span></div>`).join('')}</div>${kept>0?`<div class="dodged pm"><span>SAME PROTEIN, YOU KEEP</span><b class="num">${money(kept)}</b></div><p class="kt-save num">Your picks average ${Math.round(w.prot)}g protein a serve. To get that much from ${esc(hm.k.n)} you'd pay ${money(hm.v)}. That's ${money(kept*52,0)} a year.${lo.v>w.eaten?` Even ${esc(lo.k.n)} costs ${money(lo.v-w.eaten,0)} more.`:''}</p>`:''}`;
   }
 }
 function renderKitCfg(){
