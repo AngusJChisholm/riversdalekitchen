@@ -553,3 +553,18 @@ body.gated main{filter:blur(4px);opacity:.55;pointer-events:none;user-select:non
 .proof-note a{color:inherit;text-decoration:underline}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media (max-width:640px){.proof-tiles{grid-template-columns:1fr}.pt{flex-direction:row;align-items:baseline;gap:12px;padding:16px 18px}.pt b{font-size:36px}}
+
+/* Planner: More options, pantry check folded away */
+details.more-opts{margin-top:16px;border-top:1px dashed var(--line);padding-top:12px}
+details.more-opts>summary{cursor:pointer;list-style:none;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font-weight:700;color:var(--green)}
+details.more-opts>summary::-webkit-details-marker{display:none}
+details.more-opts>summary span::after{content:" +";}
+details.more-opts[open]>summary span::after{content:" \2212";}
+details.more-opts>summary small{font-weight:500;color:var(--muted);font-size:13px}
+details.more-opts>.ctrls{margin-top:14px}
+.aisle-k details>summary{cursor:pointer;list-style:none}
+.aisle-k details>summary::-webkit-details-marker{display:none}
+.aisle-k details>summary h3{display:inline}
+.aisle-k details>summary h3::after{content:" +";color:var(--green)}
+.aisle-k details[open]>summary h3::after{content:" \2212"}
+.aisle-k details>summary small{display:block;color:var(--muted);font-size:12px;margin:2px 0 8px}

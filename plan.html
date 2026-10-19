@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,700..900&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;700&display=swap">
-<link rel="stylesheet" href="assets/css/riversdale-kitchen.css?v=202610192320">
+<link rel="stylesheet" href="assets/css/riversdale-kitchen.css?v=202610192340">
 </head>
 <body class="page-plan">
 <a class="skip" href="#main">Skip to content</a>
@@ -44,23 +44,27 @@
     <div class="ctrls">
       <div class="ctrl"><span class="lbl" id="l-people">Who's eating</span>
         <div class="stepper" role="group" aria-labelledby="l-people"><button id="people-dn" aria-label="Fewer people">−</button><output id="people-v" class="num">5</output><button id="people-up" aria-label="More people">+</button></div></div>
-      <div class="ctrl"><span class="lbl" id="l-gf">Gluten free eaters</span>
-        <div class="stepper" role="group" aria-labelledby="l-gf"><button id="gf-dn" aria-label="Fewer gluten free">−</button><output id="gf-v" class="num">2</output><button id="gf-up" aria-label="More gluten free">+</button></div></div>
       <div class="ctrl"><span class="lbl" id="l-din">Dinners this week</span>
         <div class="stepper" role="group" aria-labelledby="l-din"><button id="din-dn" aria-label="Fewer dinners">−</button><output id="din-v" class="num">5</output><button id="din-up" aria-label="More dinners">+</button></div></div>
-      <div class="ctrl"><label for="budget">Weekly budget</label>
-        <div class="money"><span>$</span><input id="budget" type="number" inputmode="numeric" min="0" step="10" value="120"></div><p class="hint" id="budget-hint">Suggested for your household</p><button class="linkish" id="budget-reset" hidden>Use the suggested budget</button></div>
-      <div class="ctrl"><span class="lbl">Lunches</span>
-        <label class="toggle"><input type="checkbox" id="lunch" checked> Cook double for next-day lunches</label></div>
-      <div class="ctrl"><label for="prot">Min protein per serve</label>
-        <div class="range-row"><input type="range" id="prot" min="0" max="60" step="5" value="40"><output id="prot-v" class="num">40g</output></div></div>
       <div class="ctrl"><span class="lbl" id="l-store">Your supermarket</span>
         <div class="seg" role="group" aria-labelledby="l-store" id="store">
           <button data-s="coles" aria-pressed="true">Coles</button><button data-s="woolies" aria-pressed="false">Woolies</button><button data-s="aldi" aria-pressed="false">Aldi</button></div></div>
+      <div class="ctrl"><span class="lbl">Lunches</span>
+        <label class="toggle"><input type="checkbox" id="lunch" checked> Cook double for next-day lunches</label></div>
+    </div>
+    <details class="more-opts" id="more-opts"><summary><span>More options</span><small id="more-sum">Budget, gluten free, protein, leave out</small></summary>
+    <div class="ctrls">
+      <div class="ctrl"><label for="budget">Weekly budget</label>
+        <div class="money"><span>$</span><input id="budget" type="number" inputmode="numeric" min="0" step="10" value="120"></div><p class="hint" id="budget-hint">Suggested for your household</p><button class="linkish" id="budget-reset" hidden>Use the suggested budget</button></div>
+      <div class="ctrl"><span class="lbl" id="l-gf">Gluten free eaters</span>
+        <div class="stepper" role="group" aria-labelledby="l-gf"><button id="gf-dn" aria-label="Fewer gluten free">−</button><output id="gf-v" class="num">2</output><button id="gf-up" aria-label="More gluten free">+</button></div></div>
+      <div class="ctrl"><label for="prot">Min protein per serve</label>
+        <div class="range-row"><input type="range" id="prot" min="0" max="60" step="5" value="40"><output id="prot-v" class="num">40g</output></div></div>
       <div class="ctrl"><span class="lbl">Leave out</span>
         <div class="chips" id="skips">
           <button class="chip" data-k="pork" aria-pressed="false">Pork</button><button class="chip" data-k="seafood" aria-pressed="false">Seafood</button><button class="chip" data-k="red" aria-pressed="false">Red meat</button></div></div>
     </div>
+    </details>
   </section>
 
   <section class="menu" aria-labelledby="menu-h">
@@ -103,12 +107,15 @@
         <div class="stat"><b class="num" id="st-picked">0/5</b><span>dinners</span></div>
       </div>
       <hr class="rule">
-      <p class="kt-head">THE KIT TAX · SAME SERVES</p>
+      <p class="kt-head">THE KIT TAX</p>
       <div class="lines" id="bars"></div>
       <div id="dodged"></div>
       <p class="kt-save num" id="kt-save"></p>
       <div id="kt-prot"></div>
-      <p class="kt-note">What each kit really charges for your household: the box size you'd need, your number of dinners and delivery.</p>
+      <details class="kitcfg" id="allkits-wrap"><summary>Compare every meal kit</summary>
+        <div id="allkits"></div>
+        <p class="hint" style="margin-top:8px">What each kit really charges for your household: the box size you'd need, your number of dinners and delivery.</p>
+      </details>
       <details class="kitcfg"><summary>Where the kit prices come from</summary>
         <div class="kitgrid" id="kitgrid"></div>
         <p class="hint" style="margin-top:8px">Ongoing prices for the box that fits your household, delivery included. First-box discounts aren't counted. Ready meals are single serves, delivery not counted. Prices change, so we re-check them every three months.</p>
@@ -127,8 +134,7 @@
         <div class="foot-actions" style="margin-top:10px"><button class="btn ghost" id="copy">Copy plan</button><button class="btn ghost" id="share" hidden>Share</button><button class="btn ghost" id="pdfs">Download PDF</button><button class="btn ghost" id="print">Print</button></div>
         <p class="msg" id="msg" role="status"></p>
         <div class="pdf-note">
-          <p><b>Download PDF</b> gives you one file: the shopping list first, then each recipe on its own page. It's the easiest on a phone. Save it to Files, or send it to the house group chat so everyone has the week.</p>
-          <p>Want them separate, say to stick one recipe on the fridge? <button class="linkbtn" id="pdfs-split" type="button">Download one file per recipe</button> instead. On a phone you may need to tap Allow when it asks about multiple downloads.</p>
+          <p><b>Download PDF</b> is one file: shopping list first, then a page per recipe. Or <button class="linkbtn" id="pdfs-split" type="button">get one file per recipe</button>.</p>
         </div>
       </div>
     </div>
@@ -141,18 +147,18 @@
 <footer class="site-foot"><div class="foot-in">
   <div><a class="logo" href="index.html" aria-label="Riversdale Kitchen home"><span class="wm">Riversdale Kitchen</span></a><p style="margin:8px 0 0">Meal kit dinners. Supermarket prices.</p></div>
   <div class="foot-links"><a href="plan.html">Plan my week</a><a href="index.html#kit-tax">The Kit Tax</a><a href="index.html#faq">FAQ</a><a href="index.html#join">Get the weekly list</a></div>
-  <p class="fine">Prices are estimates while Riversdale Kitchen is in beta. Meal-kit comparisons use each kit's published "from" price per serve plus delivery, checked October 2026. Riversdale Kitchen isn't affiliated with HelloFresh, Marley Spoon, Dinnerly, Coles, Woolworths or Aldi. © 2026 Riversdale Kitchen.</p>
+  <p class="fine">Prices are estimates while Riversdale Kitchen is in beta. Meal-kit comparisons use each kit's ongoing price per serve for the matching box size, plus delivery, checked October 2026. Protein figures come from each kit's own nutrition panels. Riversdale Kitchen isn't affiliated with HelloFresh, Marley Spoon, Dinnerly, Coles, Woolworths or Aldi. © 2026 Riversdale Kitchen.</p>
 </div></footer>
-<script src="js/config.js?v=202610192320"></script>
-<script src="js/data.js?v=202610192320"></script>
-<script src="js/prices.js?v=202610192320"></script>
-<script src="js/images.js?v=202610192320"></script>
-<script src="js/season.js?v=202610192320"></script>
-<script src="js/recipes.js?v=202610192320"></script>
-<script src="js/planner.js?v=202610192320"></script>
-<script src="js/gate.js?v=202610192320"></script>
+<script src="js/config.js?v=202610192340"></script>
+<script src="js/data.js?v=202610192340"></script>
+<script src="js/prices.js?v=202610192340"></script>
+<script src="js/images.js?v=202610192340"></script>
+<script src="js/season.js?v=202610192340"></script>
+<script src="js/recipes.js?v=202610192340"></script>
+<script src="js/planner.js?v=202610192340"></script>
+<script src="js/gate.js?v=202610192340"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
-<script src="js/pdf.js?v=202610192320"></script>
-<script src="js/site.js?v=202610192320"></script>
+<script src="js/pdf.js?v=202610192340"></script>
+<script src="js/site.js?v=202610192340"></script>
 </body>
 </html>
