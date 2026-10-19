@@ -2,7 +2,7 @@ name: Weekly prices
 
 on:
   schedule:
-    - cron: '0 19 * * 2' # Wednesday 6am Melbourne (5am in winter), after the specials flip
+    - cron: '0 23 * * 2' # Wednesday 10am Melbourne (9am in winter), well after the overnight specials change
   workflow_dispatch: {}  # "Run workflow" button for a manual refresh
 
 permissions:
