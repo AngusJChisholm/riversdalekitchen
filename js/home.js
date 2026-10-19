@@ -53,6 +53,22 @@
       <p class="kt-save num">Ours average ${Math.round(ourProt)}g protein a serve. To get that much from ${esc(hfm.k.n)} you'd pay ${money(hfm.v)} a week. That's ${money(kept * 52, 0)} a year.${lo.v > ours ? ` Even ${esc(lo.k.n)} costs ${money(lo.v - ours, 0)} more.` : ''}</p>` : ''}`;
   }
 
+  // Proof strip: a couple cooking four dinners a week, same maths as the calculator.
+  // Rounded down so it never overstates.
+  (function proof() {
+    const k = KITS[0], ppl = 2, d = 4;
+    const ours = ppl * d * AVG + STAPLES, theirs = kitCost(k, ppl, d);
+    if (!(theirs > ours)) { const el = $('#proof'); if (el) el.hidden = true; return; }
+    const pct = Math.floor((1 - ours / theirs) * 100);
+    const year = Math.floor((theirs - ours) * 52 / 100) * 100;
+    const prot = k.prot ? Math.floor((AVGP / k.prot - 1) * 100) : 0;
+    const set = (id, v) => { const el = $(id); if (el) el.textContent = v; };
+    set('#pf-pct', pct + '%');
+    set('#pf-year', money(year, 0));
+    if (prot > 0) set('#pf-prot', prot + '%'); else { const el = document.querySelector('.pt-prot'); if (el) el.hidden = true; }
+    set('#pf-serve', money(ours / (ppl * d)));
+  })();
+
   // Hero: an example week, set like a menu
   const tierOf = r => r.tier || 'everyday';
   const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu'];
