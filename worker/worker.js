@@ -2,8 +2,8 @@
 // Settings (Cloudflare dashboard > Worker > Settings > Variables and secrets):
 //   RESEND_API_KEY  (secret)  your Resend API key
 //   FROM_EMAIL      (text)    e.g.  Riversdale Kitchen <plans@yourdomain>   (must be on your verified Resend domain)
-//   ALLOWED_ORIGIN  (text)    the site address(es), comma separated, e.g. https://angusjchisholm.github.io
-//   SITE_URL        (text)    e.g. https://angusjchisholm.github.io/docket/plan.html
+//   ALLOWED_ORIGIN  (text)    the site address(es), comma separated, e.g. https://riversdalekitchen.com.au
+//   SITE_URL        (text)    e.g. https://riversdalekitchen.com.au/plan.html
 
 const MAX_FILES = 12;
 const MAX_BASE64 = 6_000_000; // about 4.5MB of PDFs in total
@@ -55,7 +55,7 @@ export default {
     const kit = esc(String(b.kit || 'HelloFresh').slice(0, 30));
     const serves = Math.round(num(b.serves));
     const saved = num(b.saved);
-    const site = env.SITE_URL || 'https://angusjchisholm.github.io/docket/plan.html';
+    const site = env.SITE_URL || 'https://riversdalekitchen.com.au/plan.html';
 
     const html = `<!doctype html><html><body style="margin:0;background:#F4F7F2;font-family:Helvetica,Arial,sans-serif;color:#1C211E">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F4F7F2;padding:24px 12px"><tr><td align="center">

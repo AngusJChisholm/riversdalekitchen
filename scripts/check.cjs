@@ -4,7 +4,7 @@ const fs = require('fs'); const path = require('path');
 const ROOT = path.resolve(__dirname, '..'); const rd = f => fs.readFileSync(path.join(ROOT, f), 'utf8');
 const mk = () => new Proxy(function () {}, { get: (t, k) => k === 'addEventListener' ? () => {} : k === Symbol.toPrimitive ? () => '' : mk(), set: () => true, apply: () => mk() });
 global.document = { querySelector: () => mk(), querySelectorAll: () => [], createElement: () => mk(), body: mk() };
-global.location = { hash: '', pathname: '/', search: '', href: 'https://angusjchisholm.github.io/riversdale-fresh/plan.html' }; global.localStorage = { getItem: () => null, setItem() {} };
+global.location = { hash: '', pathname: '/', search: '', href: 'https://riversdalekitchen.com.au/plan.html' }; global.localStorage = { getItem: () => null, setItem() {} };
 class J { constructor() { this.n = 0; this.internal = { pageSize: { getWidth: () => 210, getHeight: () => 297 } }; } text(t) { if (/NaN|undefined/.test(String(t))) throw new Error('PDF text: ' + t); } splitTextToSize(t) { return [String(t)]; } getTextWidth(t) { return String(t).length * 2; } addPage() { this.n++; } getNumberOfPages() { return this.n + 1; } output() { return ''; } }
 ['setFont', 'setFontSize', 'setTextColor', 'setFillColor', 'setDrawColor', 'setLineWidth', 'rect', 'roundedRect', 'line', 'circle', 'save', 'setLineDashPattern', 'setPage'].forEach(m => J.prototype[m] = function () {});
 global.window = { addEventListener() {}, DOCKET_CONFIG: { staplesPerWeek: 10 }, jspdf: { jsPDF: J } };

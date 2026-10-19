@@ -18,8 +18,8 @@ Buy something like `riversdalefresh.com.au` (a .com.au needs an ABN) or `riversd
 4. Go to the worker's **Settings > Variables and secrets** and add:
    - `RESEND_API_KEY` (type **Secret**): your Resend key
    - `FROM_EMAIL`: `Riversdale Kitchen <plans@yourdomain>`
-   - `ALLOWED_ORIGIN`: `https://angusjchisholm.github.io` (add your own domain later, comma separated)
-   - `SITE_URL`: `https://angusjchisholm.github.io/docket/plan.html`
+   - `ALLOWED_ORIGIN`: `https://riversdalekitchen.com.au` (add your own domain later, comma separated)
+   - `SITE_URL`: `https://riversdalekitchen.com.au/plan.html`
 5. Copy the worker's address (like `https://riversdale-kitchen-mailer.yourname.workers.dev`).
 
 ## 4. Connect the site
