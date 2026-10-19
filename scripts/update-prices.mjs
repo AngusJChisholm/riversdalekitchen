@@ -14,7 +14,9 @@ const args = process.argv.slice(2);
 const DRY = args.includes('--dry');
 const FIXTURE = args.includes('--fixture') ? args[args.indexOf('--fixture') + 1] : null;
 const ACTOR = process.env.PRICE_ACTOR || 'toptock~au-grocery-prices';
-const PER_KEYWORD = +(process.env.PER_KEYWORD || 10);
+const PER_KEYWORD = +(process.env.PER_KEYWORD || 4); // kept low to stay inside Apify's free $5 a month
+// Which supermarkets to fetch. Aldi is left out to save credit; the site estimates Aldi from Coles.
+const CHAINS = (process.env.CHAINS || 'coles,woolworths').split(',').map(s => s.trim()).filter(Boolean);
 const today = new Date(Date.now() + 11 * 36e5).toISOString().slice(0, 10); // Melbourne date
 
 // ---------- Load Riversdale Kitchen's ingredients ----------
@@ -101,7 +103,7 @@ async function apify() {
   const token = process.env.APIFY_TOKEN; if (!token) throw new Error('APIFY_TOKEN is not set');
   const ids = Object.keys(ING);
   const keywords = [...new Set(ids.map(query))];
-  const input = { keywords, chains: ['coles', 'woolworths', 'aldi'], maxResultsPerKeyword: PER_KEYWORD, output: 'products' };
+  const input = { keywords, chains: CHAINS, maxResultsPerKeyword: PER_KEYWORD, output: 'products' };
   const base = 'https://api.apify.com/v2';
   const start = await fetch(`${base}/acts/${ACTOR}/runs?token=${token}&waitForFinish=60`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(input) });
   if (!start.ok) throw new Error(`Feed would not start (${start.status}): ${(await start.text()).slice(0, 300)}`);
@@ -161,7 +163,7 @@ for (const store of Object.keys(out)) {
     }
   }
 }
-const total = Object.keys(ING).length * 3;
+const total = Object.keys(ING).length * CHAINS.length;
 console.log(`Set ${set} prices, kept ${kept} from earlier weeks, out of ${total}.`);
 if (moves.length) console.log('Big moves:\n  ' + moves.join('\n  '));
 if (!FIXTURE && set < total * .3) { console.error('Too few matches. The feed may have changed. Leaving the site prices alone.'); process.exit(1); }
