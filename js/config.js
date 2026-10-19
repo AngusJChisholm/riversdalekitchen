@@ -2,7 +2,7 @@
 window.DOCKET_CONFIG = {
   // Where sign-up emails go: paste your Google Sheet web app URL here (see EMAILS.md),
   // or a Formspree form URL. Leave it empty and emails are only remembered in the visitor's browser.
-  waitlistEndpoint: "",
+  waitlistEndpoint: "https://script.google.com/macros/s/AKfycbwZ3B5Z9zJ3tfbra-SSOigRjbti_iKyy5J8N4jDWRekUW3WmhkxcE8_JZwtZZAmQW84-A/exec",
   // Ask for an email before the planner opens. false = planner open to everyone.
   plannerGate: true,
   // The Riversdale Kitchen mailer (Cloudflare Worker) URL that emails the PDFs, e.g. "https://riversdale-fresh-mailer.yourname.workers.dev/send".
