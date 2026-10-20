@@ -27,7 +27,7 @@
   "category": "Thigh Fillets",
   "url": "https://www.coles.com.au/product/2263328",
   "imageUrl": "https://productimages.coles.com.au/productimages/2/2263328.jpg",
-  "scrapedAt": "2026-10-19T03:29:40+00:00"
+  "scrapedAt": "2026-10-20T23:18:45+00:00"
  },
  {
   "type": "product",
@@ -57,7 +57,7 @@
   "category": "Free Range Chicken",
   "url": "https://www.coles.com.au/product/7382539",
   "imageUrl": "https://productimages.coles.com.au/productimages/7/7382539.jpg",
-  "scrapedAt": "2026-10-19T03:29:40+00:00"
+  "scrapedAt": "2026-10-20T23:18:45+00:00"
  },
  {
   "type": "product",
@@ -87,7 +87,7 @@
   "category": "Thigh Fillets",
   "url": "https://www.coles.com.au/product/2263317",
   "imageUrl": "https://productimages.coles.com.au/productimages/2/2263317.jpg",
-  "scrapedAt": "2026-10-19T03:29:40+00:00"
+  "scrapedAt": "2026-10-20T23:18:45+00:00"
  },
  {
   "type": "product",
@@ -117,7 +117,7 @@
   "category": "Free Range Chicken",
   "url": "https://www.coles.com.au/product/2303772",
   "imageUrl": "https://productimages.coles.com.au/productimages/2/2303772.jpg",
-  "scrapedAt": "2026-10-19T03:29:40+00:00"
+  "scrapedAt": "2026-10-20T23:18:45+00:00"
  },
  {
   "type": "product",
@@ -147,7 +147,7 @@
   "category": "Breast Fillets",
   "url": "https://www.coles.com.au/product/2263179",
   "imageUrl": "https://productimages.coles.com.au/productimages/2/2263179.jpg",
-  "scrapedAt": "2026-10-19T03:29:40+00:00"
+  "scrapedAt": "2026-10-20T23:18:45+00:00"
  },
  {
   "type": "product",
@@ -177,7 +177,7 @@
   "category": "Breast Fillets",
   "url": "https://www.coles.com.au/product/7362270",
   "imageUrl": "https://productimages.coles.com.au/productimages/7/7362270.jpg",
-  "scrapedAt": "2026-10-19T03:29:40+00:00"
+  "scrapedAt": "2026-10-20T23:18:45+00:00"
  },
  {
   "type": "product",
@@ -193,16 +193,12 @@
   "price": 13.5,
   "wasPrice": null,
   "priceUnit": "each",
-  "isOnSpecial": true,
-  "specialType": "multi_buy",
+  "isOnSpecial": false,
+  "specialType": null,
   "saveAmount": null,
   "savePercent": null,
-  "offerDescription": "Buy 2 for $24",
-  "multiBuy": {
-   "quantity": 2,
-   "totalPrice": 12,
-   "unitPriceText": null
-  },
+  "offerDescription": null,
+  "multiBuy": null,
   "memberPrice": null,
   "specialEndsAt": null,
   "unitPrice": 27,
@@ -211,7 +207,7 @@
   "category": "Free Range Chicken",
   "url": "https://www.coles.com.au/product/1158780",
   "imageUrl": "https://productimages.coles.com.au/productimages/1/1158780.jpg",
-  "scrapedAt": "2026-10-19T03:29:40+00:00"
+  "scrapedAt": "2026-10-20T23:18:45+00:00"
  },
  {
   "type": "product",
@@ -241,7 +237,7 @@
   "category": "Breast Fillets",
   "url": "https://www.coles.com.au/product/2263168",
   "imageUrl": "https://productimages.coles.com.au/productimages/2/2263168.jpg",
-  "scrapedAt": "2026-10-19T03:29:40+00:00"
+  "scrapedAt": "2026-10-20T23:18:45+00:00"
  },
  {
   "type": "product",
@@ -257,8 +253,8 @@
   "price": 7.1,
   "wasPrice": null,
   "priceUnit": "each",
-  "isOnSpecial": true,
-  "specialType": "special",
+  "isOnSpecial": false,
+  "specialType": null,
   "saveAmount": null,
   "savePercent": null,
   "offerDescription": null,
@@ -271,7 +267,7 @@
   "category": "Whole Chicken",
   "url": "https://www.coles.com.au/product/2782438",
   "imageUrl": "https://productimages.coles.com.au/productimages/2/2782438.jpg",
-  "scrapedAt": "2026-10-19T03:29:41+00:00"
+  "scrapedAt": "2026-10-20T23:18:47+00:00"
  },
  {
   "type": "product",
@@ -301,7 +297,7 @@
   "category": "Free Range Chicken",
   "url": "https://www.coles.com.au/product/3091126",
   "imageUrl": "https://productimages.coles.com.au/productimages/3/3091126.jpg",
-  "scrapedAt": "2026-10-19T03:29:41+00:00"
+  "scrapedAt": "2026-10-20T23:18:47+00:00"
  },
  {
   "type": "product",
@@ -317,8 +313,8 @@
   "price": 10.32,
   "wasPrice": null,
   "priceUnit": "each",
-  "isOnSpecial": true,
-  "specialType": "special",
+  "isOnSpecial": false,
+  "specialType": null,
   "saveAmount": null,
   "savePercent": null,
   "offerDescription": null,
@@ -331,37 +327,67 @@
   "category": "Whole Chicken",
   "url": "https://www.coles.com.au/product/9196739",
   "imageUrl": "https://productimages.coles.com.au/productimages/9/9196739.jpg",
-  "scrapedAt": "2026-10-19T03:29:41+00:00"
+  "scrapedAt": "2026-10-20T23:18:47+00:00"
  },
  {
   "type": "product",
   "chain": "coles",
   "chainName": "Coles",
   "keyword": "whole chicken",
-  "productId": "7607184",
+  "productId": "3228810",
   "barcode": null,
-  "name": "Lilydale Free Range Whole Chicken",
-  "brand": "Lilydale",
-  "size": "approx. 1.27kg",
-  "sizeNormalised": "1270g",
-  "price": 8.89,
-  "wasPrice": 10.8,
+  "name": "Coles RSPCA Approved Free Range Chicken Whole",
+  "brand": "Coles",
+  "size": "approx. 1.6kg",
+  "sizeNormalised": "1600g",
+  "price": 10.4,
+  "wasPrice": null,
   "priceUnit": "each",
-  "isOnSpecial": true,
-  "specialType": "special",
-  "saveAmount": 1.91,
+  "isOnSpecial": false,
+  "specialType": null,
+  "saveAmount": null,
   "savePercent": null,
   "offerDescription": null,
   "multiBuy": null,
   "memberPrice": null,
   "specialEndsAt": null,
-  "unitPrice": 7,
-  "unitPriceText": "$7.00/ 1kg",
+  "unitPrice": 6.5,
+  "unitPriceText": "$6.50/ 1kg",
   "available": true,
   "category": "Free Range Chicken",
-  "url": "https://www.coles.com.au/product/7607184",
-  "imageUrl": "https://productimages.coles.com.au/productimages/7/7607184.jpg",
-  "scrapedAt": "2026-10-19T03:29:41+00:00"
+  "url": "https://www.coles.com.au/product/3228810",
+  "imageUrl": "https://productimages.coles.com.au/productimages/3/3228810.jpg",
+  "scrapedAt": "2026-10-20T23:18:47+00:00"
+ },
+ {
+  "type": "product",
+  "chain": "coles",
+  "chainName": "Coles",
+  "keyword": "beef mince 3 star",
+  "productId": "1656438",
+  "barcode": null,
+  "name": "Coles Pork & Beef 3 Star Regular Mince Bolognese",
+  "brand": "Coles",
+  "size": "1kg",
+  "sizeNormalised": "1000g",
+  "price": 11,
+  "wasPrice": 12.5,
+  "priceUnit": "each",
+  "isOnSpecial": true,
+  "specialType": "special",
+  "saveAmount": 1.5,
+  "savePercent": null,
+  "offerDescription": null,
+  "multiBuy": null,
+  "memberPrice": null,
+  "specialEndsAt": null,
+  "unitPrice": 11,
+  "unitPriceText": "$11.00/ 1kg",
+  "available": true,
+  "category": "Pork Mince",
+  "url": "https://www.coles.com.au/product/1656438",
+  "imageUrl": "https://productimages.coles.com.au/productimages/1/1656438.jpg",
+  "scrapedAt": "2026-10-20T23:18:47+00:00"
  },
  {
   "type": "product",
@@ -391,37 +417,7 @@
   "category": "Pork Mince",
   "url": "https://www.coles.com.au/product/8782237",
   "imageUrl": "https://productimages.coles.com.au/productimages/8/8782237.jpg",
-  "scrapedAt": "2026-10-19T03:29:41+00:00"
- },
- {
-  "type": "product",
-  "chain": "coles",
-  "chainName": "Coles",
-  "keyword": "beef mince 3 star",
-  "productId": "1656438",
-  "barcode": null,
-  "name": "Coles Pork & Beef 3 Star Regular Mince Bolognese",
-  "brand": "Coles",
-  "size": "1kg",
-  "sizeNormalised": "1000g",
-  "price": 12.5,
-  "wasPrice": null,
-  "priceUnit": "each",
-  "isOnSpecial": false,
-  "specialType": null,
-  "saveAmount": null,
-  "savePercent": null,
-  "offerDescription": null,
-  "multiBuy": null,
-  "memberPrice": null,
-  "specialEndsAt": null,
-  "unitPrice": 12.5,
-  "unitPriceText": "$12.50/ 1kg",
-  "available": true,
-  "category": "Pork Mince",
-  "url": "https://www.coles.com.au/product/1656438",
-  "imageUrl": "https://productimages.coles.com.au/productimages/1/1656438.jpg",
-  "scrapedAt": "2026-10-19T03:29:41+00:00"
+  "scrapedAt": "2026-10-20T23:18:47+00:00"
  },
  {
   "type": "product",
@@ -434,24 +430,24 @@
   "brand": "Coles",
   "size": "1Kg",
   "sizeNormalised": "1000g",
-  "price": 9.5,
-  "wasPrice": 11,
+  "price": 11,
+  "wasPrice": null,
   "priceUnit": "each",
-  "isOnSpecial": true,
-  "specialType": "special",
-  "saveAmount": 1.5,
+  "isOnSpecial": false,
+  "specialType": null,
+  "saveAmount": null,
   "savePercent": null,
   "offerDescription": null,
   "multiBuy": null,
   "memberPrice": null,
   "specialEndsAt": null,
-  "unitPrice": 9.5,
-  "unitPriceText": "$9.50/ 1kg",
+  "unitPrice": 11,
+  "unitPriceText": "$11.00/ 1kg",
   "available": true,
   "category": "Pork Mince",
   "url": "https://www.coles.com.au/product/1436089",
   "imageUrl": "https://productimages.coles.com.au/productimages/1/1436089.jpg",
-  "scrapedAt": "2026-10-19T03:29:41+00:00"
+  "scrapedAt": "2026-10-20T23:18:47+00:00"
  },
  {
   "type": "product",
@@ -481,7 +477,7 @@
   "category": "Beef & Veal Mince",
   "url": "https://www.coles.com.au/product/8112449",
   "imageUrl": "https://productimages.coles.com.au/productimages/8/8112449.jpg",
-  "scrapedAt": "2026-10-19T03:29:42+00:00"
+  "scrapedAt": "2026-10-20T23:18:48+00:00"
  },
  {
   "type": "product",
@@ -511,7 +507,7 @@
   "category": "Other Halal",
   "url": "https://www.coles.com.au/product/6123116",
   "imageUrl": "https://productimages.coles.com.au/productimages/6/6123116.jpg",
-  "scrapedAt": "2026-10-19T03:29:42+00:00"
+  "scrapedAt": "2026-10-20T23:18:48+00:00"
  },
  {
   "type": "product",
@@ -541,7 +537,7 @@
   "category": "Pork Mince",
   "url": "https://www.coles.com.au/product/8782237",
   "imageUrl": "https://productimages.coles.com.au/productimages/8/8782237.jpg",
-  "scrapedAt": "2026-10-19T03:29:42+00:00"
+  "scrapedAt": "2026-10-20T23:18:48+00:00"
  },
  {
   "type": "product",
@@ -575,7 +571,7 @@
   "category": "Chicken & Turkey Mince",
   "url": "https://www.coles.com.au/product/4352145",
   "imageUrl": "https://productimages.coles.com.au/productimages/4/4352145.jpg",
-  "scrapedAt": "2026-10-19T03:29:42+00:00"
+  "scrapedAt": "2026-10-20T23:18:48+00:00"
  },
  {
   "type": "product",
@@ -588,24 +584,24 @@
   "brand": "Coles",
   "size": "approx. 840g",
   "sizeNormalised": "840g",
-  "price": 24.36,
-  "wasPrice": null,
+  "price": 20.16,
+  "wasPrice": 24.36,
   "priceUnit": "each",
-  "isOnSpecial": false,
-  "specialType": null,
-  "saveAmount": null,
+  "isOnSpecial": true,
+  "specialType": "special",
+  "saveAmount": 4.2,
   "savePercent": null,
   "offerDescription": null,
   "multiBuy": null,
   "memberPrice": null,
   "specialEndsAt": null,
-  "unitPrice": 29,
-  "unitPriceText": "$29.00/ 1kg",
+  "unitPrice": 24,
+  "unitPriceText": "$24.00/ 1kg",
   "available": true,
   "category": "Beef Steaks",
   "url": "https://www.coles.com.au/product/5132370",
   "imageUrl": "https://productimages.coles.com.au/productimages/5/5132370.jpg",
-  "scrapedAt": "2026-10-19T03:29:42+00:00"
+  "scrapedAt": "2026-10-20T23:18:49+00:00"
  },
  {
   "type": "product",
@@ -618,24 +614,24 @@
   "brand": "Coles",
   "size": "500g",
   "sizeNormalised": "500g",
-  "price": 15.5,
-  "wasPrice": null,
+  "price": 13.5,
+  "wasPrice": 15.5,
   "priceUnit": "each",
-  "isOnSpecial": false,
-  "specialType": null,
-  "saveAmount": null,
+  "isOnSpecial": true,
+  "specialType": "special",
+  "saveAmount": 2,
   "savePercent": null,
   "offerDescription": null,
   "multiBuy": null,
   "memberPrice": null,
   "specialEndsAt": null,
-  "unitPrice": 31,
-  "unitPriceText": "$31.00/ 1kg",
+  "unitPrice": 27,
+  "unitPriceText": "$27.00/ 1kg",
   "available": true,
   "category": "Beef Steaks",
   "url": "https://www.coles.com.au/product/6358630",
   "imageUrl": "https://productimages.coles.com.au/productimages/6/6358630.jpg",
-  "scrapedAt": "2026-10-19T03:29:42+00:00"
+  "scrapedAt": "2026-10-20T23:18:49+00:00"
  },
  {
   "type": "product",
@@ -665,37 +661,37 @@
   "category": "Beef Steaks",
   "url": "https://www.coles.com.au/product/2591870",
   "imageUrl": "https://productimages.coles.com.au/productimages/2/2591870.jpg",
-  "scrapedAt": "2026-10-19T03:29:42+00:00"
+  "scrapedAt": "2026-10-20T23:18:49+00:00"
  },
  {
   "type": "product",
   "chain": "coles",
   "chainName": "Coles",
   "keyword": "Rump steak",
-  "productId": "3920479",
+  "productId": "8712049",
   "barcode": null,
-  "name": "Drovers Choice Beef Rump Steak",
-  "brand": "Drovers Choice",
-  "size": "230g",
-  "sizeNormalised": "230g",
-  "price": 8,
-  "wasPrice": null,
+  "name": "Coles Lamb Rump Steak With Honey Rosemary Marinade",
+  "brand": "Coles",
+  "size": "approx. 550g",
+  "sizeNormalised": "550g",
+  "price": 11,
+  "wasPrice": 14.3,
   "priceUnit": "each",
-  "isOnSpecial": false,
-  "specialType": null,
-  "saveAmount": null,
+  "isOnSpecial": true,
+  "specialType": "special",
+  "saveAmount": 3.3,
   "savePercent": null,
   "offerDescription": null,
   "multiBuy": null,
   "memberPrice": null,
   "specialEndsAt": null,
-  "unitPrice": 34.78,
-  "unitPriceText": "$34.78/ 1kg",
+  "unitPrice": 20,
+  "unitPriceText": "$20.00/ 1kg",
   "available": true,
-  "category": "Beef Steaks",
-  "url": "https://www.coles.com.au/product/3920479",
-  "imageUrl": "https://productimages.coles.com.au/productimages/3/3920479.jpg",
-  "scrapedAt": "2026-10-19T03:29:42+00:00"
+  "category": "Lamb Steak",
+  "url": "https://www.coles.com.au/product/8712049",
+  "imageUrl": "https://productimages.coles.com.au/productimages/8/8712049.jpg",
+  "scrapedAt": "2026-10-20T23:18:49+00:00"
  },
  {
   "type": "product",
@@ -725,7 +721,7 @@
   "category": "Beef Roasts",
   "url": "https://www.coles.com.au/product/7820986",
   "imageUrl": "https://productimages.coles.com.au/productimages/7/7820986.jpg",
-  "scrapedAt": "2026-10-19T03:29:43+00:00"
+  "scrapedAt": "2026-10-20T23:18:50+00:00"
  },
  {
   "type": "product",
@@ -738,24 +734,24 @@
   "brand": "Coles",
   "size": "1Kg",
   "sizeNormalised": "1000g",
-  "price": 17,
-  "wasPrice": 20,
+  "price": 20,
+  "wasPrice": null,
   "priceUnit": "each",
-  "isOnSpecial": true,
-  "specialType": "special",
-  "saveAmount": 3,
+  "isOnSpecial": false,
+  "specialType": null,
+  "saveAmount": null,
   "savePercent": null,
   "offerDescription": null,
   "multiBuy": null,
   "memberPrice": null,
   "specialEndsAt": null,
-  "unitPrice": 17,
-  "unitPriceText": "$17.00/ 1kg",
+  "unitPrice": 20,
+  "unitPriceText": "$20.00/ 1kg",
   "available": true,
   "category": "Beef Steaks",
   "url": "https://www.coles.com.au/product/1773726",
   "imageUrl": "https://productimages.coles.com.au/productimages/1/1773726.jpg",
-  "scrapedAt": "2026-10-19T03:29:43+00:00"
+  "scrapedAt": "2026-10-20T23:18:50+00:00"
  },
  {
   "type": "product",
@@ -768,24 +764,24 @@
   "brand": "Drovers Choice",
   "size": "approx. 1.15kg",
   "sizeNormalised": "1150g",
-  "price": 20.7,
-  "wasPrice": 21.85,
+  "price": 21.85,
+  "wasPrice": null,
   "priceUnit": "each",
-  "isOnSpecial": true,
-  "specialType": "special",
-  "saveAmount": 1.15,
+  "isOnSpecial": false,
+  "specialType": null,
+  "saveAmount": null,
   "savePercent": null,
   "offerDescription": null,
   "multiBuy": null,
   "memberPrice": null,
   "specialEndsAt": null,
-  "unitPrice": 18,
-  "unitPriceText": "$18.00/ 1kg",
+  "unitPrice": 19,
+  "unitPriceText": "$19.00/ 1kg",
   "available": true,
   "category": "Beef Steaks",
   "url": "https://www.coles.com.au/product/5041107",
   "imageUrl": "https://productimages.coles.com.au/productimages/5/5041107.jpg",
-  "scrapedAt": "2026-10-19T03:29:43+00:00"
+  "scrapedAt": "2026-10-20T23:18:50+00:00"
  },
  {
   "type": "product",
@@ -815,7 +811,7 @@
   "category": "Beef Roasts",
   "url": "https://www.coles.com.au/product/2888519",
   "imageUrl": "https://productimages.coles.com.au/productimages/2/2888519.jpg",
-  "scrapedAt": "2026-10-19T03:29:43+00:00"
+  "scrapedAt": "2026-10-20T23:18:50+00:00"
  },
  {
   "type": "product",
@@ -845,7 +841,7 @@
   "category": "Pork Roasts",
   "url": "https://www.coles.com.au/product/9413881",
   "imageUrl": "https://productimages.coles.com.au/productimages/9/9413881.jpg",
-  "scrapedAt": "2026-10-19T03:29:44+00:00"
+  "scrapedAt": "2026-10-20T23:18:50+00:00"
  },
  {
   "type": "product",
@@ -875,37 +871,7 @@
   "category": "Pork Roasts",
   "url": "https://www.coles.com.au/product/7363501",
   "imageUrl": "https://productimages.coles.com.au/productimages/7/7363501.jpg",
-  "scrapedAt": "2026-10-19T03:29:44+00:00"
- },
- {
-  "type": "product",
-  "chain": "coles",
-  "chainName": "Coles",
-  "keyword": "Pork shoulder, boneless",
-  "productId": "1873120",
-  "barcode": null,
-  "name": "Coles Char Siu Pork Shoulder",
-  "brand": "Coles",
-  "size": "approx. 1Kg",
-  "sizeNormalised": "1000g",
-  "price": 13,
-  "wasPrice": 15,
-  "priceUnit": "each",
-  "isOnSpecial": true,
-  "specialType": "special",
-  "saveAmount": 2,
-  "savePercent": null,
-  "offerDescription": null,
-  "multiBuy": null,
-  "memberPrice": null,
-  "specialEndsAt": null,
-  "unitPrice": 13,
-  "unitPriceText": "$13.00/ 1kg",
-  "available": true,
-  "category": "Pork Marinade",
-  "url": "https://www.coles.com.au/product/1873120",
-  "imageUrl": "https://productimages.coles.com.au/productimages/1/1873120.jpg",
-  "scrapedAt": "2026-10-19T03:29:44+00:00"
+  "scrapedAt": "2026-10-20T23:18:50+00:00"
  },
  {
   "type": "product",
@@ -935,7 +901,37 @@
   "category": "Lamb Roasts",
   "url": "https://www.coles.com.au/product/9206800",
   "imageUrl": "https://productimages.coles.com.au/productimages/9/9206800.jpg",
-  "scrapedAt": "2026-10-19T03:29:44+00:00"
+  "scrapedAt": "2026-10-20T23:18:50+00:00"
+ },
+ {
+  "type": "product",
+  "chain": "coles",
+  "chainName": "Coles",
+  "keyword": "Pork shoulder, boneless",
+  "productId": "1645045",
+  "barcode": null,
+  "name": "Coles Boneless Mini Pork Leg Roast",
+  "brand": "Coles",
+  "size": "approx. 1kg",
+  "sizeNormalised": "1000g",
+  "price": 14.5,
+  "wasPrice": null,
+  "priceUnit": "each",
+  "isOnSpecial": false,
+  "specialType": null,
+  "saveAmount": null,
+  "savePercent": null,
+  "offerDescription": null,
+  "multiBuy": null,
+  "memberPrice": null,
+  "specialEndsAt": null,
+  "unitPrice": 14.5,
+  "unitPriceText": "$14.50/ 1kg",
+  "available": true,
+  "category": "Pork Roasts",
+  "url": "https://www.coles.com.au/product/1645045",
+  "imageUrl": "https://productimages.coles.com.au/productimages/1/1645045.jpg",
+  "scrapedAt": "2026-10-20T23:18:50+00:00"
  },
  {
   "type": "product",
@@ -965,37 +961,7 @@
   "category": "Pork Roasts",
   "url": "https://www.coles.com.au/product/9413881",
   "imageUrl": "https://productimages.coles.com.au/productimages/9/9413881.jpg",
-  "scrapedAt": "2026-10-19T03:29:44+00:00"
- },
- {
-  "type": "product",
-  "chain": "coles",
-  "chainName": "Coles",
-  "keyword": "pork shoulder roast",
-  "productId": "1645045",
-  "barcode": null,
-  "name": "Coles Boneless Mini Pork Leg Roast",
-  "brand": "Coles",
-  "size": "approx. 1kg",
-  "sizeNormalised": "1000g",
-  "price": 14.5,
-  "wasPrice": null,
-  "priceUnit": "each",
-  "isOnSpecial": false,
-  "specialType": null,
-  "saveAmount": null,
-  "savePercent": null,
-  "offerDescription": null,
-  "multiBuy": null,
-  "memberPrice": null,
-  "specialEndsAt": null,
-  "unitPrice": 14.5,
-  "unitPriceText": "$14.50/ 1kg",
-  "available": true,
-  "category": "Pork Roasts",
-  "url": "https://www.coles.com.au/product/1645045",
-  "imageUrl": "https://productimages.coles.com.au/productimages/1/1645045.jpg",
-  "scrapedAt": "2026-10-19T03:29:44+00:00"
+  "scrapedAt": "2026-10-20T23:18:51+00:00"
  },
  {
   "type": "product",
@@ -1025,7 +991,37 @@
   "category": "Pork Roasts",
   "url": "https://www.coles.com.au/product/2902700",
   "imageUrl": "https://productimages.coles.com.au/productimages/2/2902700.jpg",
-  "scrapedAt": "2026-10-19T03:29:44+00:00"
+  "scrapedAt": "2026-10-20T23:18:51+00:00"
+ },
+ {
+  "type": "product",
+  "chain": "coles",
+  "chainName": "Coles",
+  "keyword": "pork shoulder roast",
+  "productId": "1645045",
+  "barcode": null,
+  "name": "Coles Boneless Mini Pork Leg Roast",
+  "brand": "Coles",
+  "size": "approx. 1kg",
+  "sizeNormalised": "1000g",
+  "price": 14.5,
+  "wasPrice": null,
+  "priceUnit": "each",
+  "isOnSpecial": false,
+  "specialType": null,
+  "saveAmount": null,
+  "savePercent": null,
+  "offerDescription": null,
+  "multiBuy": null,
+  "memberPrice": null,
+  "specialEndsAt": null,
+  "unitPrice": 14.5,
+  "unitPriceText": "$14.50/ 1kg",
+  "available": true,
+  "category": "Pork Roasts",
+  "url": "https://www.coles.com.au/product/1645045",
+  "imageUrl": "https://productimages.coles.com.au/productimages/1/1645045.jpg",
+  "scrapedAt": "2026-10-20T23:18:51+00:00"
  },
  {
   "type": "product",
@@ -1055,7 +1051,7 @@
   "category": "Pork Marinade",
   "url": "https://www.coles.com.au/product/4492133",
   "imageUrl": "https://productimages.coles.com.au/productimages/4/4492133.jpg",
-  "scrapedAt": "2026-10-19T03:29:44+00:00"
+  "scrapedAt": "2026-10-20T23:18:51+00:00"
  },
  {
   "type": "product",
@@ -1085,21 +1081,21 @@
   "category": "Pork Mince",
   "url": "https://www.coles.com.au/product/8781518",
   "imageUrl": "https://productimages.coles.com.au/productimages/8/8781518.jpg",
-  "scrapedAt": "2026-10-19T03:29:45+00:00"
+  "scrapedAt": "2026-10-20T23:18:52+00:00"
  },
  {
   "type": "product",
   "chain": "coles",
   "chainName": "Coles",
   "keyword": "Pork mince",
-  "productId": "1436089",
+  "productId": "1656438",
   "barcode": null,
-  "name": "Coles Pork 3 Star Regular Mince",
+  "name": "Coles Pork & Beef 3 Star Regular Mince Bolognese",
   "brand": "Coles",
-  "size": "1Kg",
+  "size": "1kg",
   "sizeNormalised": "1000g",
-  "price": 9.5,
-  "wasPrice": 11,
+  "price": 11,
+  "wasPrice": 12.5,
   "priceUnit": "each",
   "isOnSpecial": true,
   "specialType": "special",
@@ -1109,13 +1105,13 @@
   "multiBuy": null,
   "memberPrice": null,
   "specialEndsAt": null,
-  "unitPrice": 9.5,
-  "unitPriceText": "$9.50/ 1kg",
+  "unitPrice": 11,
+  "unitPriceText": "$11.00/ 1kg",
   "available": true,
   "category": "Pork Mince",
-  "url": "https://www.coles.com.au/product/1436089",
-  "imageUrl": "https://productimages.coles.com.au/productimages/1/1436089.jpg",
-  "scrapedAt": "2026-10-19T03:29:45+00:00"
+  "url": "https://www.coles.com.au/product/1656438",
+  "imageUrl": "https://productimages.coles.com.au/productimages/1/1656438.jpg",
+  "scrapedAt": "2026-10-20T23:18:52+00:00"
  },
  {
   "type": "product",
@@ -1145,7 +1141,7 @@
   "category": "Pork Mince",
   "url": "https://www.coles.com.au/product/8781132",
   "imageUrl": "https://productimages.coles.com.au/productimages/8/8781132.jpg",
-  "scrapedAt": "2026-10-19T03:29:45+00:00"
+  "scrapedAt": "2026-10-20T23:18:52+00:00"
  },
  {
   "type": "product",
@@ -1175,36 +1171,36 @@
   "category": "Pork Mince",
   "url": "https://www.coles.com.au/product/8782237",
   "imageUrl": "https://productimages.coles.com.au/productimages/8/8782237.jpg",
-  "scrapedAt": "2026-10-19T03:29:45+00:00"
+  "scrapedAt": "2026-10-20T23:18:52+00:00"
  },
  {
   "type": "product",
   "chain": "coles",
   "chainName": "Coles",
   "keyword": "lamb shoulder",
-  "productId": "9206800",
+  "productId": "9154794",
   "barcode": null,
-  "name": "Coles Lamb Boneless Shoulder Roast",
+  "name": "Coles Lamb Shoulder Roast On The Bone",
   "brand": "Coles",
-  "size": "approx. 1.3kg",
-  "sizeNormalised": "1300g",
-  "price": 29.9,
-  "wasPrice": null,
+  "size": "approx. 2.2kg",
+  "sizeNormalised": "2200g",
+  "price": 33,
+  "wasPrice": 39.6,
   "priceUnit": "each",
-  "isOnSpecial": false,
-  "specialType": null,
-  "saveAmount": null,
+  "isOnSpecial": true,
+  "specialType": "special",
+  "saveAmount": 6.6,
   "savePercent": null,
   "offerDescription": null,
   "multiBuy": null,
   "memberPrice": null,
   "specialEndsAt": null,
-  "unitPrice": 23,
-  "unitPriceText": "$23.00/ 1kg",
+  "unitPrice": 15,
+  "unitPriceText": "$15.00/ 1kg",
   "available": true,
   "category": "Lamb Roasts",
-  "url": "https://www.coles.com.au/product/9206800",
-  "imageUrl": "https://productimages.coles.com.au/productimages/9/9206800.jpg",
-  "scrapedAt": "2026-10-19T03:29:45+00:00"
+  "url": "https://www.coles.com.au/product/9154794",
+  "imageUrl": "https://productimages.coles.com.au/productimages/9/9154794.jpg",
+  "scrapedAt": "2026-10-20T23:18:52+00:00"
  }
 ]
