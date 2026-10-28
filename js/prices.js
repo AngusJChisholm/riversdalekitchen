@@ -38,13 +38,6 @@ window.DOCKET_PRICES = {
         "Coles RSPCA Approved Medium Whole Chicken approx. 1.65Kg"
       ]
     },
-    "beef_lean": {
-      "p": 8,
-      "pk": 500,
-      "name": "Coles 5 Star Extra Lean Pork Mince 500g",
-      "at": "2026-10-28",
-      "u": "https://www.coles.com.au/product/8781132"
-    },
     "beef_rump": {
       "p": 25.2,
       "pk": 1050,
@@ -68,13 +61,6 @@ window.DOCKET_PRICES = {
       "was": 20
     },
     "pork_shoulder": {
-      "p": 26,
-      "pk": 2600,
-      "name": "Coles Boneless Pork Shoulder Roast approx. 2.6kg",
-      "at": "2026-10-28",
-      "u": "https://www.coles.com.au/product/9413881"
-    },
-    "pork_roast": {
       "p": 26,
       "pk": 2600,
       "name": "Coles Boneless Pork Shoulder Roast approx. 2.6kg",
@@ -395,13 +381,6 @@ window.DOCKET_PRICES = {
       "at": "2026-10-28",
       "u": "https://www.coles.com.au/product/4575605",
       "sp": 1
-    },
-    "avocado": {
-      "p": 2.8,
-      "pk": 1,
-      "name": "Coles Avocado Dip 200g",
-      "at": "2026-10-28",
-      "u": "https://www.coles.com.au/product/6530710"
     },
     "lemon": {
       "p": 1.6,
@@ -938,13 +917,6 @@ window.DOCKET_PRICES = {
       "at": "2026-10-28",
       "u": "https://www.coles.com.au/product/1437230"
     },
-    "buns": {
-      "p": 3.9,
-      "pk": 6,
-      "name": "Toscano Everything Brioche Burger Bun 100g",
-      "at": "2026-10-28",
-      "u": "https://www.coles.com.au/product/1504815"
-    },
     "wraps": {
       "p": 2.2,
       "pk": 8,
@@ -960,18 +932,6 @@ window.DOCKET_PRICES = {
       "u": "https://www.coles.com.au/product/7395337",
       "sp": 1,
       "was": 5
-    },
-    "naan": {
-      "p": 3.2,
-      "pk": 5,
-      "name": "Coles Mini Toasty Garlic And Herb Naan 5 Pack 225g",
-      "at": "2026-10-28",
-      "u": "https://www.coles.com.au/product/3997983",
-      "alt": [
-        3,
-        3.2,
-        "Coles Indian Naan Garlic 3 Pack 250g"
-      ]
     },
     "gf_lasagne": {
       "p": 8.5,
@@ -1557,13 +1517,6 @@ window.DOCKET_PRICES = {
       "name": "Garlic Head each",
       "at": "2026-10-28",
       "u": "https://www.woolworths.com.au/shop/productdetails/713429/woolworths-garlic-head"
-    },
-    "ginger": {
-      "p": 4.2,
-      "pk": 80,
-      "name": "Gourmet Garden Paste Ginger 80g",
-      "at": "2026-10-28",
-      "u": "https://www.woolworths.com.au/shop/productdetails/948511/gourmet-garden-paste-ginger"
     },
     "carrot": {
       "p": 2.5,
