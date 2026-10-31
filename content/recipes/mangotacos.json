@@ -1,0 +1,31 @@
+{
+ "id": "mangotacos",
+ "m": [
+  {
+   "h": "Get prepped",
+   "s": "Pat {chk_thigh} dry and cut into thin strips. Dice {mango} into small cubes, finely dice {red_onion} and {cucumber}, and pick and roughly chop {mint}. Finely grate {garlic}. Shred {iceberg} as thinly as you can with a sharp knife."
+  },
+  {
+   "h": "Make the salsa",
+   "s": "Tip the mango, onion, cucumber and mint into a bowl. Add {ricevinegar} and a pinch of salt and toss. Leave it for 10 minutes so the onion softens and the mango weeps its juices. Taste it: it should be sweet, sharp and fresh."
+  },
+  {
+   "h": "Spice the chicken",
+   "s": "Toss the chicken in a bowl with {smokedpaprika}, {cumin}, the garlic, salt and a drizzle of oil. Make sure every strip is coated."
+  },
+  {
+   "h": "Cook the chicken",
+   "s": "Heat a large frying pan over medium-high heat. Cook the chicken in a single layer in two batches, 3 to 4 minutes a side, until golden and charred at the edges with no pink left (75°C in the thickest part). Crowding the pan steams the chicken, so don't skip the batches."
+  },
+  {
+   "h": "Make the sauce",
+   "s": "Stir {sourcream} and {sriracha} together in a small bowl with a pinch of salt until it is a pale orange. Add more sriracha for more heat."
+  },
+  {
+   "h": "Warm and build",
+   "s": "Warm {tortillas} in a dry pan for 20 seconds a side until soft and flecked with brown, or wrap them in a damp paper towel and microwave for 30 seconds. Layer with lettuce, chicken and salsa, then drizzle over the sauce."
+  }
+ ],
+ "l": "Pack the chicken, salsa, lettuce and sauce in separate containers and build at your desk so the tortillas stay soft. The chicken keeps 3 days in the fridge and is good cold in a wrap.",
+ "g": "Swap the flour tortillas for corn tortillas and warm them in a dry pan. Check the label on the sriracha and smoked paprika. Everything else is naturally gluten free."
+}

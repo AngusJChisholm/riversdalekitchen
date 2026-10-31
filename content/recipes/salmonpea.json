@@ -1,0 +1,31 @@
+{
+ "id": "salmonpea",
+ "m": [
+  {
+   "h": "Boil the potatoes",
+   "s": "Halve {potato} into bite-size pieces and put them in a pot of cold, well-salted water. Bring to the boil and cook for 12 to 15 minutes until a knife slides in easily. Drain and leave them to steam dry in the pot."
+  },
+  {
+   "h": "Get prepped",
+   "s": "Take {salmon} out of the fridge so it isn't fridge-cold when it hits the pan. Pat the skin completely dry with paper towel and season both sides well. Snap the woody ends off {asparagus}, finely grate {garlic}, pick the leaves from {mint} and drain and roughly chop {capers}."
+  },
+  {
+   "h": "Sear the salmon",
+   "s": "Heat a drizzle of oil in a frying pan over medium-high heat. Lay the salmon in skin side down and press with a spatula for 20 seconds so the skin stays flat. Cook for 4 to 5 minutes without moving it, until the skin is crisp and the flesh is opaque two thirds of the way up. Flip for 1 to 2 minutes, then rest on a plate."
+  },
+  {
+   "h": "Smash the peas",
+   "s": "Boil {peas} in the potato pot or a small saucepan for 2 minutes. Drain, then mash roughly with a fork with half the {butter*0.5}, the mint, salt and pepper. Leave it chunky. Stir through {whitevinegar} to lift it."
+  },
+  {
+   "h": "Char the asparagus",
+   "s": "Wipe out the pan, heat over medium-high and cook the asparagus for 3 minutes, turning, until bright green with a few charred spots. Add the potatoes for the last minute to crisp up. Move everything to a plate."
+  },
+  {
+   "h": "Brown butter and serve",
+   "s": "Turn the heat to medium and add the rest of the butter. Cook for 1 to 2 minutes, swirling, until it smells nutty and turns light brown. Add the garlic and capers for 20 seconds. Spoon the pea smash onto plates, add the salmon, asparagus and potatoes, then spoon over the brown butter."
+  }
+ ],
+ "l": "Flake the salmon over the pea smash and pack the potatoes and asparagus alongside. Eat cold or microwave gently for 60 seconds, as salmon dries out fast. Keeps 2 days in the fridge.",
+ "g": "Naturally gluten free. Capers in brine are fine, but check the label on the jar for added malt vinegar."
+}

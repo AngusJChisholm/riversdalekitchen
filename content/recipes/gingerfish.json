@@ -1,0 +1,31 @@
+{
+ "id": "gingerfish",
+ "m": [
+  {
+   "h": "Get the rice on",
+   "s": "Rinse {brownrice} until the water runs clear and put it in a saucepan with twice its volume of cold water and a pinch of salt. Bring to the boil, then cover and cook on low for 25 minutes. Take it off the heat and leave the lid on for 5 minutes."
+  },
+  {
+   "h": "Get prepped",
+   "s": "Finely grate {ginger} and {garlic}. Thinly slice {springonion} and finely slice {chilli}. Trim the ends off {snowpeas} and cut {broccolini} in half lengthways if the stems are thick. Pat {whitefish} dry and season lightly with salt."
+  },
+  {
+   "h": "Make the sauce",
+   "s": "In a small bowl, stir together {soy}, {ricevinegar}, {sesameoil}, half the ginger and half the garlic. Set aside. This is your flavour, so taste it: it should be salty, tangy and a bit sharp."
+  },
+  {
+   "h": "Steam the fish",
+   "s": "Add a splash of water to a large frying pan with a lid, set over medium heat and bring to a simmer. Lay in the fish, scatter over the rest of the ginger and garlic and cover. Steam for 5 to 6 minutes until the fish is opaque and flakes with a fork. Lift it out onto a plate and keep it covered."
+  },
+  {
+   "h": "Cook the greens",
+   "s": "Tip out most of the liquid, leaving about 2 tbsp. Add the broccolini, snow peas and {edamame}. Cover and cook for 3 minutes over medium-high heat, tossing once, until the broccolini is bright green and tender with a little bite."
+  },
+  {
+   "h": "Serve up",
+   "s": "Spoon the rice into bowls and top with the greens and fish. Pour the sauce over the fish and scatter with the spring onion and chilli. Add a pinch of extra chilli if you like it hot."
+  }
+ ],
+ "l": "Pack the fish over the rice with the greens and sauce on the side. Microwave for 90 seconds with the lid ajar and don't overdo it, as fish gets rubbery. Keeps 2 days in the fridge.",
+ "g": "Swap the soy sauce for tamari. Check the label on the sesame oil, though it is usually pure. Everything else is naturally gluten free."
+}

@@ -76,6 +76,7 @@ const ING={
  mushroom:{n:'Cup mushrooms',a:'F',u:'g',pk:500,p:6.00,pr:3,wt:1},
  eggplant:{n:'Eggplant',a:'F',u:'ea',pk:1,p:3.50,pr:1,ea:[1,'eggplant']},
  greenbeans:{n:'Green beans',a:'F',u:'g',pk:500,p:4.50,pr:2,wt:1},
+ mango:{n:'Mangoes (Kensington Pride)',a:'F',u:'ea',pk:1,p:2.50,pr:.8,ea:[1,'mango']},
 
  lamb_mince:{n:'Lamb mince',a:'M',u:'g',pk:500,p:9.00,pr:18,t:'red'},
  pork_belly:{n:'Pork belly',a:'M',u:'g',pk:1000,p:17.00,pr:14,t:'pork',wt:1},
@@ -410,7 +411,20 @@ const R=[
   i:[['chk_breast',200],['cos',.5],['asparagus',.4],['bacon',40],['eggs',1],['parm',20],['turkish',.5],['mayo',25],['lemon',.25],['garlic',.1],['worcestershire',3]]},
 
  {id:'proteinburrito',n:'Protein Beef Burrito Bowls',c:'Bowls',t:30,added:'2026-10-17',d:'Lean smoky beef and black beans with roast sweet potato, whipped cottage cheese, avo and a drizzle of hot honey. Around 70g protein a bowl.',
-  i:[['beef_lean',230],['swpotato',150],['onion',40],['garlic',.08],['tompaste',15],['smokedpaprika',1.2],['cumin',1.2],['chillipowder',.5],['oregano',.4],['blackbeans',80],['rice',60],['lime',.4],['coriander',.15],['cos',.2],['corn',50],['avocado',.4],['cottagecheese',100],['honey',12],['chilliflakes',.5]]}
+  i:[['beef_lean',230],['swpotato',150],['onion',40],['garlic',.08],['tompaste',15],['smokedpaprika',1.2],['cumin',1.2],['chillipowder',.5],['oregano',.4],['blackbeans',80],['rice',60],['lime',.4],['coriander',.15],['cos',.2],['corn',50],['avocado',.4],['cottagecheese',100],['honey',12],['chilliflakes',.5]]},
+
+ // ---------- November 2026 drop ----------
+ {id:'carbonara',n:'Chicken, Bacon & Zucchini Carbonara',c:'Pasta',t:25,added:'2026-10-31',d:'Silky egg and parmesan sauce (no cream) over pasta with golden chicken, crispy bacon, zucchini and peas.',
+  i:[['chk_breast',200],['bacon',40],['pasta',120],['eggs',1],['parm',20],['zucchini',120],['peas',60],['garlic',.1],['parsley',.1]]},
+
+ {id:'mangotacos',n:'Mango Salsa Chicken Tacos',c:'Fakeaway',t:25,added:'2026-10-31',d:'Smoky charred chicken in warm tortillas with fresh mango salsa, crisp lettuce and sriracha sour cream.',
+  i:[['chk_thigh',220],['smokedpaprika',1],['cumin',1],['garlic',.08],['mango',.3],['red_onion',.1],['cucumber',.15],['mint',.08],['ricevinegar',8],['tortillas',2.5],['iceberg',.15],['sourcream',25],['sriracha',4]]},
+
+ {id:'gingerfish',n:'Ginger Soy Fish, Snow Peas & Broccolini',c:'Seafood',tier:'lighter',t:30,added:'2026-10-31',d:'Gently steamed white fish with ginger and soy, crisp spring greens, edamame and nutty brown rice.',
+  i:[['whitefish',200],['ginger',8],['garlic',.1],['soy',15],['ricevinegar',6],['sesameoil',3],['snowpeas',60],['broccolini',.4],['edamame',50],['springonion',.2],['chilli',.2],['brownrice',75]]},
+
+ {id:'salmonpea',n:'Pan-Seared Salmon, Minted Pea Smash & Asparagus',c:'Seafood',tier:'premium',t:30,added:'2026-10-31',d:'Crisp-skinned salmon on a chunky minted pea smash with charred asparagus, crispy potatoes and caper brown butter.',
+  i:[['salmon',200],['peas',120],['mint',.12],['butter',18],['garlic',.1],['asparagus',.5],['potato',150],['capers',6],['whitevinegar',5]]}
 ];
 
 // ---------- Sweet treats (optional extras, never counted as dinners) ----------

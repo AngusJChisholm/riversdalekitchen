@@ -1,0 +1,31 @@
+{
+ "id": "carbonara",
+ "m": [
+  {
+   "h": "Boil the pasta",
+   "s": "Bring a large pot of well-salted water to the boil. Cook {pasta} for 1 minute less than the packet says, then scoop out a mug of the pasta water before draining. Add {peas} to the pot for the last minute so they cook with it."
+  },
+  {
+   "h": "Get prepped",
+   "s": "While the water heats, slice {chk_breast} into thin strips and season with salt and pepper. Cut {bacon} into small pieces, slice {zucchini} into half moons and finely grate {garlic}. In a bowl, whisk {eggs} with {parm} and plenty of black pepper until it looks like thick custard."
+  },
+  {
+   "h": "Crisp the bacon",
+   "s": "Heat a large frying pan over medium-high heat with no oil. Cook the bacon for 4 to 5 minutes, stirring, until golden and the fat has rendered. Lift it out onto a plate and leave the fat in the pan."
+  },
+  {
+   "h": "Cook the chicken",
+   "s": "Add the chicken to the bacon fat in a single layer and cook for 3 to 4 minutes, turning, until golden with no pink left. Add the zucchini and garlic and cook for 2 minutes until the zucchini has a little colour. Turn the heat right down to low."
+  },
+  {
+   "h": "Make it silky",
+   "s": "Tip the drained pasta and peas into the pan and toss. Take the pan off the heat and wait 30 seconds, as a pan that is too hot scrambles the egg. Pour in the egg mixture with a good splash of pasta water and toss hard for 1 minute until the sauce turns glossy and coats the pasta. Add more water if it looks tight."
+  },
+  {
+   "h": "Serve up",
+   "s": "Fold through the bacon and most of {parsley*0.5} chopped. Taste and add salt only if it needs it, as the bacon and parmesan are salty. Pile into bowls and finish with the rest of the parsley and a crack of pepper."
+  }
+ ],
+ "l": "Pack with a splash of water on top so the sauce loosens when you reheat. Microwave for 90 seconds, stirring halfway. Keeps 2 days in the fridge, as egg sauces are best fresh.",
+ "g": "Swap the pasta for GF pasta and cook it in its own pot. Check the bacon label, as a few cure mixes contain gluten. Everything else is naturally gluten free."
+}
